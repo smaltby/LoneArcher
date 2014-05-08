@@ -1,0 +1,80 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #000;
+}
+
+body table {
+    background-color: #333;
+}
+
+body table div.gwt-Label {
+    color: #ccc;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+body.loaded table {
+    background-color: #000;
+}
+
+body.loaded table canvas {
+    border: 1px solid #333;
+}
+
+#loading {
+    color: #ccc;
+    font-size: 18px;
+    font-family: sans-serif;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+
+#ie10 {
+    color: #ccc;
+    font-size: 18px;
+    font-family: sans-serif;
+    position: absolute;
+    top: 50px;
+    left: 30px;
+}
+
+#sm2-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -72px;
+    margin-left: -96px;
+    height: 144px;
+    width: 192px;
+    z-index: 10;
+}
+
+body.loaded #sm2-container {
+    top: -9999px;
+    left: -9999px;
+}
+
+#sm2movie {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+#sm2-container.swf_timedout #sm2movie {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#footer {
+    color: #666;
+    font-size: 12px;
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+}

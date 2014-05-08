@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="22"
+   height="160"
+   id="svg4397"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Arrow.svg"
+   inkscape:export-filename="C:\Users\Jason\Pictures\Sean's pictures\LoneArcher\Animations\Archer\Arrow.png"
+   inkscape:export-xdpi="89.999969"
+   inkscape:export-ydpi="89.999969">
+  <defs
+     id="defs4399" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="12.358155"
+     inkscape:cy="74.223388"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:showpageshadow="false"
+     inkscape:window-width="1600"
+     inkscape:window-height="838"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:object-paths="false"
+     inkscape:object-nodes="true" />
+  <metadata
+     id="metadata4402">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-892.3622)">
+    <path
+       style="fill:#502a2a;fill-opacity:1;stroke:none;stroke-opacity:1;stroke-width:0.50000000000000000;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 11.132709,892.3622 -7.6356516,18.69154 4.9281877,-2.80439 0,120.29905 c -0.6851842,1.1621 -1.6040969,2.3581 -2.4956764,3.2053 C 4.3511442,1033.2539 2.2529215,1033.924 0,1034.253 l 0.21614464,18.1092 c 1.57910826,-0.129 3.08842816,-0.6123 4.98510076,-1.7874 1.5245788,-0.8406 3.4676142,-3.0855 5.7793246,-6.9406 2.305575,3.8882 4.299428,6.0783 5.822756,6.9406 1.894778,1.2022 3.394622,1.6363 4.973496,1.7874 L 22,1034.2522 c -2.252179,-0.3614 -4.369002,-0.9758 -5.945082,-2.4985 -0.890231,-0.8601 -1.585243,-2.0335 -2.268551,-3.2053 l 9.18e-4,-120.29879 4.923714,2.80413 z"
+       id="path3874-2"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccccccccc"
+       inkscape:export-xdpi="89.999969"
+       inkscape:export-ydpi="89.999969"
+       inkscape:export-filename="C:\Users\Jason\Pictures\Sean's pictures\LoneArcher\Animations\Entity\Arrow.png" />
+    <path
+       style="fill:#550000;stroke:none;stroke-width:0.10000000000000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 8.4375 136.1875 C 7.7523158 137.3496 6.8290795 138.55905 5.9375 139.40625 C 4.3590755 140.90645 2.2529215 141.57725 0 141.90625 L 0.21875 160 C 1.7978583 159.871 3.2908274 159.39385 5.1875 158.21875 C 6.7120788 157.37815 8.6570396 155.13635 10.96875 151.28125 C 13.274325 155.16945 15.289172 157.35645 16.8125 158.21875 C 18.707278 159.42095 20.202376 159.8489 21.78125 160 L 22 141.875 C 19.747821 141.5136 17.63858 140.92895 16.0625 139.40625 C 15.172269 138.54615 14.464558 137.3593 13.78125 136.1875 L 8.4375 136.1875 z "
+       transform="translate(0,892.3622)"
+       id="path3875" />
+    <path
+       style="fill:#333333;stroke:none;stroke-width:0.10000000000000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 11.125 0 L 3.5 18.6875 L 8.4375 15.875 L 13.78125 15.875 L 18.71875 18.6875 L 11.125 0 z "
+       id="path3929"
+       transform="translate(0,892.3622)" />
+  </g>
+</svg>

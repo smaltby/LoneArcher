@@ -1,0 +1,285 @@
+
+pack.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Arrow
+  rotate: false
+  xy: 765, 349
+  size: 22, 160
+  orig: 22, 160
+  offset: 0, 0
+  index: -1
+Body
+  rotate: false
+  xy: 1801, 861
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+CheckedRadio
+  rotate: false
+  xy: 1867, 826
+  size: 33, 33
+  orig: 33, 33
+  offset: 0, 0
+  index: -1
+CrackedTexture
+  rotate: false
+  xy: 1543, 767
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+EmberButton
+  rotate: false
+  xy: 1, 60
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+EmberButtonDisabled
+  rotate: false
+  xy: 196, 128
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+EmberButtonDown
+  rotate: false
+  xy: 891, 614
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+ExplosionButton
+  rotate: false
+  xy: 1801, 795
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+ExplosionButtonDisabled
+  rotate: false
+  xy: 1903, 897
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+ExplosionButtonDown
+  rotate: false
+  xy: 67, 60
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Hand
+  rotate: false
+  xy: 2009, 988
+  size: 35, 35
+  orig: 35, 35
+  offset: 0, 0
+  index: -1
+HealthBar
+  rotate: false
+  xy: 1, 194
+  size: 364, 23
+  orig: 364, 23
+  offset: 0, 0
+  index: -1
+HealthBarBackground
+  rotate: false
+  xy: 771, 680
+  size: 364, 23
+  orig: 364, 23
+  offset: 0, 0
+  index: -1
+HealthBarForeground
+  rotate: false
+  xy: 771, 705
+  size: 400, 51
+  orig: 400, 51
+  offset: 0, 0
+  index: -1
+Ice
+  rotate: false
+  xy: 771, 560
+  size: 118, 118
+  orig: 118, 118
+  offset: 0, 0
+  index: -1
+KnockbackButton
+  rotate: false
+  xy: 262, 128
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+KnockbackButtonDisabled
+  rotate: false
+  xy: 957, 614
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+KnockbackButtonDown
+  rotate: false
+  xy: 1023, 614
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Limbs
+  rotate: false
+  xy: 1801, 963
+  size: 206, 60
+  orig: 206, 60
+  offset: 0, 0
+  index: -1
+Logo
+  rotate: false
+  xy: 1, 219
+  size: 700, 290
+  orig: 700, 290
+  offset: 0, 0
+  index: -1
+NextWaveButton
+  rotate: false
+  xy: 1, 126
+  size: 193, 66
+  orig: 193, 66
+  offset: 0, 0
+  index: -1
+PlusButton
+  rotate: false
+  xy: 1, 10
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+PlusButtonDisabled
+  rotate: false
+  xy: 1305, 708
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+PlusButtonDown
+  rotate: false
+  xy: 51, 10
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+RegenButton
+  rotate: false
+  xy: 133, 60
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RegenButtonDisabled
+  rotate: false
+  xy: 199, 62
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+RegenButtonDown
+  rotate: false
+  xy: 265, 62
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+ReviveButton
+  rotate: false
+  xy: 703, 268
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+ReviveButtonDisabled
+  rotate: false
+  xy: 891, 548
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+ReviveButtonDown
+  rotate: false
+  xy: 957, 548
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+SplitPaneHorizontal
+  rotate: false
+  xy: 1, 1
+  size: 5, 7
+  orig: 5, 7
+  offset: 0, 0
+  index: -1
+StartButton
+  rotate: false
+  xy: 771, 758
+  size: 770, 265
+  orig: 770, 265
+  offset: 0, 0
+  index: -1
+StringHalf
+  rotate: false
+  xy: 1543, 761
+  size: 84, 4
+  orig: 84, 4
+  offset: 0, 0
+  index: -1
+Sword
+  rotate: false
+  xy: 703, 334
+  size: 60, 175
+  orig: 60, 175
+  offset: 0, 0
+  index: -1
+TripleShotButton
+  rotate: false
+  xy: 1023, 548
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+TripleShotButtonDisabled
+  rotate: false
+  xy: 1173, 692
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+TripleShotButtonDown
+  rotate: false
+  xy: 1239, 692
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+UncheckedRadio
+  rotate: false
+  xy: 1903, 862
+  size: 33, 33
+  orig: 33, 33
+  offset: 0, 0
+  index: -1
+WindowBackground
+  rotate: false
+  xy: 1, 511
+  size: 768, 512
+  orig: 768, 512
+  offset: 0, 0
+  index: -1
+white
+  rotate: false
+  xy: 2046, 1022
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1

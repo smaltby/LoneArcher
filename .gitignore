@@ -1,0 +1,17 @@
+*.ap_
+*.dex
+*/bin/
+*/gen/
+*.class
+*.jar
+*.war
+*/war/gwt_bree/
+*/war/assets/
+*/gwt-unitCache/
+*/.apt_generated/
+*/war/WEB-INF/deploy/
+*/war/WEB-INF/classes/
+*/target/
+*.GwtDefinition/
+*.iml
+*.log

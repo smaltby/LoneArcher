@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100"
+   height="100"
+   id="svg4597"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Body.svg"
+   inkscape:export-filename="C:\Users\Jason\Pictures\Sean's pictures\LoneArcher\Animations\Entity\Body.png"
+   inkscape:export-xdpi="89.999969"
+   inkscape:export-ydpi="89.999969">
+  <defs
+     id="defs4599" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.5"
+     inkscape:cx="-47.32628"
+     inkscape:cy="125.46501"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:showpageshadow="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1600"
+     inkscape:window-height="838"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4602">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-0.01762392,-952.40005)">
+    <path
+       sodipodi:type="arc"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:4.24264050000000030;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path3189"
+       sodipodi:cx="495.68185"
+       sodipodi:cy="384.73447"
+       sodipodi:rx="19.091883"
+       sodipodi:ry="19.091883"
+       d="m 514.77374,384.73447 c 0,10.54415 -8.54773,19.09188 -19.09189,19.09188 -10.54415,0 -19.09188,-8.54773 -19.09188,-19.09188 0,-10.54416 8.54773,-19.09189 19.09188,-19.09189 10.54416,0 19.09189,8.54773 19.09189,19.09189 z"
+       transform="matrix(2.3570226,0,0,2.3570226,-1118.3157,95.572219)" />
+  </g>
+</svg>

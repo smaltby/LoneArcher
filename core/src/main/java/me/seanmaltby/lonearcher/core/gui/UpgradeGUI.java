@@ -1,0 +1,382 @@
+package me.seanmaltby.lonearcher.core.gui;
+
+import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
+import com.badlogic.gdx.scenes.scene2d.ui.*;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import me.seanmaltby.lonearcher.core.Global;
+import me.seanmaltby.lonearcher.core.WaveHandler;
+import me.seanmaltby.lonearcher.core.entities.EntityAttribute;
+import me.seanmaltby.lonearcher.core.entities.Player;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class UpgradeGUI
+{
+	private Stage stage;
+	private WaveHandler waveHandler;
+
+	private Window upgradeWindow;
+	private List<UpgradePath> upgradePathsList;
+	private List<UpgradeButton> upgradeButtonsList;
+	private List<PlayerStat> playerStatsList;
+
+	private boolean initialized = false;
+
+	public UpgradeGUI(Stage stage, WaveHandler waveHandler)
+	{
+		this.stage = stage;
+		this.waveHandler = waveHandler;
+
+		upgradeWindow = new Window("Upgrade", Global.uiSkin);
+		upgradePathsList = new ArrayList<>();
+		upgradeButtonsList = new ArrayList<>();
+		playerStatsList = new ArrayList<>();
+	}
+
+	private void initializeGUI()
+	{
+		initialized = true;
+
+		int appWidth = Global.VIRTUAL_WIDTH;
+		int appHeight = Global.VIRTUAL_HEIGHT;
+
+		upgradeWindow.setTitleAlignment(Align.bottom);
+		upgradeWindow.setWidth(appWidth * .9f);
+		upgradeWindow.setHeight(appHeight * .8f);
+		upgradeWindow.setX(appWidth / 2f - upgradeWindow.getWidth() / 2f);
+		upgradeWindow.setY(appHeight / 2f - upgradeWindow.getHeight() / 2f);
+		upgradeWindow.pad(20f);
+		upgradeWindow.left();
+
+		Table upgradePaths = new Table(Global.uiSkin);
+		Table upgradeButtons = new Table(Global.uiSkin);
+		upgradeButtons.defaults().pad(5f);
+		Table statsTable = new Table(Global.uiSkin);
+		statsTable.defaults().left().top();
+		upgradeWindow.add(upgradePaths).fillY().expandY().top().left();
+		upgradeWindow.add(upgradeButtons).fillY().expandY().top().left();
+		upgradeWindow.add(statsTable).fillY().expandY().top().left();
+		upgradeWindow.row();
+
+		createUpgradeButtons(upgradeButtons);
+
+		upgradePathsList.add(new UpgradePath("Health", 45, 2, EntityAttribute.MAX_HEALTH, 5, 1.5f, 5, false));
+		upgradePathsList.add(new UpgradePath("Damage", 75, 2, EntityAttribute.DAMAGE, 2, 1, 5, false));
+		upgradePathsList.add(new UpgradePath("Attack Speed", 60, 2, EntityAttribute.ATTACK_SPEED, 0.5f, 1, 5, false));
+		upgradePathsList.add(new UpgradePath("Move Speed", 45, 2, EntityAttribute.SPEED, 0.5f, 1, 5, false));
+		upgradePathsList.add(new UpgradePath("Piercing", 240, 1.5f, EntityAttribute.PIERCING, 1, 1, 3, true));
+
+		for(UpgradePath path : upgradePathsList)
+		{
+			upgradePaths.add(path).left();
+			upgradePaths.row();
+		}
+
+		playerStatsList.add(new PlayerStat(null, EntityAttribute.MAX_HEALTH));
+		playerStatsList.add(new PlayerStat(null, EntityAttribute.DAMAGE));
+		playerStatsList.add(new PlayerStat(null, EntityAttribute.ATTACK_SPEED));
+		playerStatsList.add(new PlayerStat(null, EntityAttribute.SPEED));
+		playerStatsList.add(new PlayerStat(null, EntityAttribute.PIERCING));
+		for(PlayerStat stat : playerStatsList)
+		{
+			statsTable.add(stat);
+			statsTable.row();
+		}
+
+		Button nextWaveButton = new Button(Global.uiSkin, "nextWaveButton");
+		nextWaveButton.addListener(new ClickListener()
+		{
+			@Override
+			public void clicked(InputEvent event, float x, float y)
+			{
+				waveHandler.startWave();
+				close();
+			}
+		});
+		upgradeWindow.add(nextWaveButton).expandX().center().colspan(3);
+	}
+
+	private void createUpgradeButtons(Table upgradeButtons)
+	{
+		final Player player = Global.gameScreen.getPlayer();
+		upgradeButtonsList.add(new UpgradeButton(Global.uiSkin, "tripleShot", 1200, new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				player.setAttribute(EntityAttribute.PROJECTILES, 3);
+			}
+		}));
+		upgradeButtonsList.add(new UpgradeButton(Global.uiSkin, "explosion", 1500, new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				player.setExplosiveArrows(true);
+				player.setAttribute(EntityAttribute.DAMAGE, player.getAttributeFloat(EntityAttribute.DAMAGE) + 5);
+			}
+		}));
+		upgradeButtonsList.add(new UpgradeButton(Global.uiSkin, "revive", 450, new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				player.setRevive(true);
+			}
+		}));
+		upgradeButtonsList.add(new UpgradeButton(Global.uiSkin, "knockback", 600, new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				player.setAttribute(EntityAttribute.KNOCKBACK, 5f);
+			}
+		}));
+		upgradeButtonsList.add(new UpgradeButton(Global.uiSkin, "regen", 900, new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				player.setRegen(true);
+			}
+		}));
+		upgradeButtonsList.add(new UpgradeButton(Global.uiSkin, "ember", 450, new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				player.setEmber(true);
+			}
+		}));
+
+		for (int i = 0; i < upgradeButtonsList.size(); i++)
+		{
+			upgradeButtons.add(upgradeButtonsList.get(i));
+			if(i % 2 == 1)
+				upgradeButtons.row();
+		}
+	}
+
+	public void open()
+	{
+		if(!initialized)
+			initializeGUI();
+		stage.addActor(upgradeWindow);
+		updateDisabledStatuses();
+	}
+
+	public void close()
+	{
+		upgradeWindow.remove();
+	}
+
+	private void updateStats()
+	{
+		for(PlayerStat stat : playerStatsList)
+		{
+			stat.updateValue();
+		}
+	}
+
+	private void updateDisabledStatuses()
+	{
+		for(UpgradeButton button : upgradeButtonsList)
+			button.updateDisabledStatus();
+		for(UpgradePath path : upgradePathsList)
+			path.updateDisabledStatus();
+	}
+
+	class UpgradePath extends Table
+	{
+		private String name;
+
+		private Button[] radios;
+		private Label nameLabel;
+		private Button plus;
+
+		private int upgradeLevel = 0;
+		private int numUpgrades;
+
+		private float cost;
+		private EntityAttribute attribute;
+		private float attributeIncrease;
+
+		private float costMultiplier;
+		private float increaseMultiplier;
+
+		private boolean integer;
+
+		UpgradePath(String name, float initialCost, float costMultiplier, EntityAttribute attribute, float initialIncrease,
+					float increaseMultiplier, int numUpgrades, boolean integer)
+		{
+			this.name = name;
+
+			cost = initialCost;
+			this.attribute = attribute;
+			attributeIncrease = initialIncrease;
+
+			this.costMultiplier = costMultiplier;
+			this.increaseMultiplier = increaseMultiplier;
+
+			this.numUpgrades = numUpgrades;
+
+			this.integer = integer;
+
+			addActors();
+		}
+
+		private void addActors()
+		{
+			String labelString = "+"+attributeIncrease+" "+name+"($"+cost+")";
+			nameLabel = new Label(labelString, Global.uiSkin, "hobbyOfNight");
+			add(nameLabel).width(275f);
+
+			radios = new Button[numUpgrades];
+			for(int i = 0; i < numUpgrades; i++)
+			{
+				radios[i] = new Button(Global.uiSkin, "upgradeRadio");
+				radios[i].setTouchable(Touchable.disabled);
+				add(radios[i]).pad(2f);
+			}
+
+			plus = new Button(Global.uiSkin, "upgradePlus");
+			plus.addListener(new ClickListener()
+			{
+				@Override
+				public void clicked(InputEvent event, float x, float y)
+				{
+					if(upgradeLevel >= numUpgrades)
+						return;
+					if(plus.isDisabled())
+						return;
+
+					//Deduct cost
+					Player player = Global.gameScreen.getPlayer();
+					player.subMoney(cost);
+
+					//Upgrade level and handle actor appearances
+					radios[upgradeLevel].setChecked(true);
+					upgradeLevel++;
+					if(upgradeLevel == numUpgrades)
+						plus.setDisabled(true);
+
+					//Handle attribute increases
+					if(integer)
+						player.setAttribute(attribute, player.getAttributeInteger(attribute) + MathUtils.round(attributeIncrease));
+					else
+						player.setAttribute(attribute, player.getAttributeFloat(attribute) + attributeIncrease);
+					attributeIncrease *= increaseMultiplier;
+					cost *= costMultiplier;
+					nameLabel.setText("+"+attributeIncrease+" "+name+" ($"+cost+")");
+
+
+					updateStats();
+					updateDisabledStatuses();
+				}
+			});
+
+			add(plus).pad(2f);
+		}
+
+		void updateDisabledStatus()
+		{
+			if(upgradeLevel == numUpgrades)
+				return;
+			Player player = Global.gameScreen.getPlayer();
+			if(player.getMoney() < cost)
+				plus.setDisabled(true);
+			else
+				plus.setDisabled(false);
+		}
+	}
+
+	class UpgradeButton extends Group
+	{
+		private float cost;
+		private boolean used = false;
+
+		private Button button;
+		private Label costLabel;
+
+		UpgradeButton(Skin uiSkin, String style, final float cost, final Runnable onBuy)
+		{
+			button = new Button(uiSkin, style);
+			this.cost = cost;
+
+			button.addListener(new ClickListener()
+			{
+				@Override
+				public void clicked(InputEvent event, float x, float y)
+				{
+					onBuy.run();
+
+					Player player = Global.gameScreen.getPlayer();
+					player.subMoney(cost);
+					used = true;
+					button.setDisabled(true);
+
+					updateStats();
+					updateDisabledStatuses();
+				}
+			});
+			costLabel = new Label("$"+cost, Global.uiSkin, "hobbyOfNight");
+			costLabel.setFontScale(.75f);
+
+			addActor(button);
+			addActor(costLabel);
+
+			setSize(button.getWidth(), button.getHeight());
+		}
+
+		void updateDisabledStatus()
+		{
+			if(used)
+				return;
+			Player player = Global.gameScreen.getPlayer();
+			if(player.getMoney() < cost)
+				button.setDisabled(true);
+			else
+				button.setDisabled(false);
+		}
+	}
+
+	class PlayerStat extends Table
+	{
+		private Image icon;
+		private Label attributeLabel;
+		private Label valueLabel;
+
+		private EntityAttribute attribute;
+
+		PlayerStat(Image icon, EntityAttribute attribute)
+		{
+			this.icon = icon;
+			this.attribute = attribute;
+
+			attributeLabel = new Label(attribute.name(), Global.uiSkin, "hobbyOfNight");
+			valueLabel = new Label("", Global.uiSkin, "hobbyOfNight");
+			updateValue();
+
+			addActors();
+		}
+
+		void updateValue()
+		{
+			Player player = Global.gameScreen.getPlayer();
+			valueLabel.setText(player.getAttribute(attribute, Number.class).toString());
+		}
+
+		private void addActors()
+		{
+			add().size(40, 40);
+			add(attributeLabel).width(150f);
+			add(valueLabel);
+		}
+	}
+}

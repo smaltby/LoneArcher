@@ -1,0 +1,5 @@
+<module>
+    <source path="spriter">
+        <exclude name="**/Spriter.*"/>
+    </source>
+</module>

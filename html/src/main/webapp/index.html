@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>LoneArcher</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <link href="styles.css" rel="stylesheet" type="text/css">
+        <script>
+            window.setTimeout(function showLoadingMessage() {
+                var loading = document.getElementById("loading");
+                loading && loading.removeAttribute("style");
+            }, 5000);
+        </script>
+        <script src="LoneArcher/soundmanager2-setup.js"></script>
+        <script src="LoneArcher/soundmanager2-jsmin.js"></script>
+        <script src="LoneArcher/LoneArcher.nocache.js"></script>
+    </head>
+    <body>
+        <div id="sm2-container"></div>
+        <div id="loading">
+            <p>Please ensure that JavaScript, Flash, and WebGL are available and enabled.</p>
+        </div>
+        <script>
+            (function hideLoadingMessage() {
+                var loading = document.getElementById("loading");
+                loading && loading.setAttribute("style", "display: none");
+            }());
+            (function enableUseFlashBlock() {
+                function waitForSoundManager() {
+                    if (soundManager) {
+                        soundManager.useFlashBlock = true;
+                    } else {
+                        window.setTimeout(waitForSoundManager, 100);
+                    }
+                }
+                window.setTimeout(waitForSoundManager, 0);
+            }());
+        </script>
+        <!--[if lte IE 10]>
+        <div id="ie10">
+            <p>Internet Explorer 10 and below is not supported.</p>
+        </div>
+        <![endif]-->
+        <div id="footer">
+            <p id="version">&nbsp;</p>
+        </div>
+    </body>
+</html>

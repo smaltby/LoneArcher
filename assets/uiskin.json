@@ -1,0 +1,89 @@
+{
+    "com.badlogic.gdx.graphics.Color": {
+        "green": { "a": 1, "b": 0, "g": 1, "r": 0 },
+        "white": { "a": 1, "b": 1, "g": 1, "r": 1 },
+        "red": { "a": 1, "b": 0, "g": 0, "r": 1 },
+        "black": { "a": 1, "b": 0, "g": 0, "r": 0 }
+    },
+    "com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable": {
+        "windowStageBackground": { "name": "white", "color": { "r": 0, "g": 0, "b": 0, "a": 0.45 } }
+    },
+    "com.badlogic.gdx.graphics.g2d.BitmapFont": {
+        "default": { "file": "fonts/default.fnt" },
+        "hobbyOfNight": { "file": "fonts/HobbyOfNight.fnt" },
+        "hobbyOfNight-Large": { "file": "fonts/HobbyOfNight-Large.fnt" }
+    },
+    "com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle": {
+        "startButton": {
+            "up": "StartButton",
+            "down": "StartButton",
+            "over": "StartButton"
+        }, "nextWaveButton": {
+            "up": "NextWaveButton",
+            "down": "NextWaveButton",
+            "over": "NextWaveButton"
+        }, "upgradePlus": {
+            "up": "PlusButton",
+            "down": "PlusButtonDown",
+            "disabled": "PlusButtonDisabled"
+        }, "upgradeRadio": {
+            "up": "UncheckedRadio",
+            "checked": "CheckedRadio"
+        }, "tripleShot": {
+            "up": "TripleShotButton",
+            "down": "TripleShotButtonDown",
+            "disabled": "TripleShotButtonDisabled"
+        }, "explosion": {
+            "up": "ExplosionButton",
+            "down": "ExplosionButtonDown",
+            "disabled": "ExplosionButtonDisabled"
+        }, "revive": {
+            "up": "ReviveButton",
+            "down": "ReviveButtonDown",
+            "disabled": "ReviveButtonDisabled"
+        }, "knockback": {
+            "up": "KnockbackButton",
+            "down": "KnockbackButtonDown",
+            "disabled": "KnockbackButtonDisabled"
+        }, "regen": {
+            "up": "RegenButton",
+            "down": "RegenButtonDown",
+            "disabled": "RegenButtonDisabled"
+        }, "ember": {
+            "up": "EmberButton",
+            "down": "EmberButtonDown",
+            "disabled": "EmberButtonDisabled"
+        }
+    },
+    "com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle": {
+        "default": {
+            "titleFont": "default",
+            "titleFontColor": "white",
+            "background": "WindowBackground",
+            "stageBackground": "windowStageBackground"
+        }
+    },
+    "com.badlogic.gdx.scenes.scene2d.ui.SplitPane$SplitPaneStyle": {
+        "default-horizontal": {
+            "handle": "SplitPaneHorizontal"
+        }
+    },
+    "com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle": {
+        "default": {
+              "font": "default",
+              "fontColor": "white"
+        }, "hobbyOfNight": {
+            "font": "hobbyOfNight",
+            "fontColor": "white"
+        }, "hobbyOfNight-Large": {
+            "font": "hobbyOfNight-Large",
+            "fontColor": "white"
+        }
+    },
+    "com.badlogic.gdx.scenes.scene2d.ui.TextField$TextFieldStyle": {
+        "default": {
+            "font": "default",
+            "fontColor": "white"
+        }
+    }
+}

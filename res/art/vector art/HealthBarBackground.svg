@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="364"
+   height="23"
+   id="svg6102"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="HealthBarBackground.svg">
+  <defs
+     id="defs6104">
+    <linearGradient
+       gradientTransform="matrix(0.99798849,0,0,0.98371276,-12.66103,512.44324)"
+       y2="438.54968"
+       x2="388.44241"
+       y1="438.54968"
+       x1="24.507936"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient6075"
+       xlink:href="#linearGradient6042"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient6042">
+      <stop
+         style="stop-color:#550707;stop-opacity:1;"
+         offset="0"
+         id="stop6044" />
+      <stop
+         id="stop6052"
+         offset="0.25"
+         style="stop-color:#550707;stop-opacity:1;" />
+      <stop
+         id="stop6050"
+         offset="0.5"
+         style="stop-color:#a4a819;stop-opacity:1;" />
+      <stop
+         style="stop-color:#006e0c;stop-opacity:1;"
+         offset="0.75"
+         id="stop6054" />
+      <stop
+         style="stop-color:#006e0c;stop-opacity:1;"
+         offset="1"
+         id="stop6046" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="191.33705"
+     inkscape:cy="51.145658"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:showpageshadow="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1600"
+     inkscape:window-height="838"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata6107">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-1029.3622)">
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       d="m 0,1029.3622 0,23 364,0 0,-23 z"
+       id="path5340"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
