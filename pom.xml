@@ -17,7 +17,8 @@
         <gwt.maven.version>2.6.1-rc2</gwt.maven.version>
         <spriter.version>1.1</spriter.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <robovm.goal>iphone-sim</robovm.goal>
+        <robovm.version>0.0.12</robovm.version>
+        <robovm.maven.version>0.0.12.1</robovm.maven.version>
     </properties>
 
     <repositories>

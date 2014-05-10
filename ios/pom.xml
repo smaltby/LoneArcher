@@ -40,13 +40,13 @@
         <dependency>
             <groupId>org.robovm</groupId>
             <artifactId>robovm-rt</artifactId>
-            <version>0.0.12</version>
+            <version>${robovm.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.robovm</groupId>
             <artifactId>robovm-cocoatouch</artifactId>
-            <version>0.0.12</version>
+            <version>${robovm.version}</version>
         </dependency>
 
         <dependency>
@@ -88,7 +88,7 @@
             <plugin>
                 <groupId>org.robovm</groupId>
                 <artifactId>robovm-maven-plugin</artifactId>
-                <version>0.0.12.1</version>
+                <version>${robovm.maven.version}</version>
                 <configuration>
                     <config>
                         <mainClass>${mainClass}</mainClass>
@@ -96,16 +96,95 @@
                         <arch>thumbv7</arch>
                     </config>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>run</id>
-                        <phase>integration-test</phase>
-                        <goals>
-                            <goal>iphone-sim</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <!-- run 'mvn package -Pios -Psim', 'mvn package -Pios -Pdevice', or 'mvn package -Pios -Pipa' for intended robovm goal -->
+        <profile>
+            <id>sim</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.robovm</groupId>
+                        <artifactId>robovm-maven-plugin</artifactId>
+                        <version>${robovm.maven.version}</version>
+                        <configuration>
+                            <config>
+                                <mainClass>${mainClass}</mainClass>
+                                <os>ios</os>
+                                <arch>thumbv7</arch>
+                            </config>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>run</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>iphone-sim</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>device</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.robovm</groupId>
+                        <artifactId>robovm-maven-plugin</artifactId>
+                        <version>${robovm.maven.version}</version>
+                        <configuration>
+                            <config>
+                                <mainClass>${mainClass}</mainClass>
+                                <os>ios</os>
+                                <arch>thumbv7</arch>
+                            </config>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>run</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>ios-device</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>ipa</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.robovm</groupId>
+                        <artifactId>robovm-maven-plugin</artifactId>
+                        <version>${robovm.maven.version}</version>
+                        <configuration>
+                            <config>
+                                <mainClass>${mainClass}</mainClass>
+                                <os>ios</os>
+                                <arch>thumbv7</arch>
+                            </config>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>run</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>create-ipa</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
