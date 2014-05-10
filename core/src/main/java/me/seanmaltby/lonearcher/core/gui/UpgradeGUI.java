@@ -314,6 +314,9 @@ public class UpgradeGUI
 				@Override
 				public void clicked(InputEvent event, float x, float y)
 				{
+					if(button.isDisabled())
+						return;
+
 					onBuy.run();
 
 					Player player = Global.gameScreen.getPlayer();
