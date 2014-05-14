@@ -104,14 +104,14 @@ public class Player extends RangedEntity
 			case Desktop:
 			case Applet:
 			case WebGL:
-//				//Look direction
-//				Vector3 mouseCoords = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
-//				camera.unproject(mouseCoords);
-//
-//				deltaY = mouseCoords.y - getPosition().y;
-//				deltaX = mouseCoords.x - getPosition().x;
-//				angle = MathUtils.atan2(deltaY, deltaX);
-//				setDirection(angle);
+				//Look direction
+				Vector3 mouseCoords = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
+				camera.unproject(mouseCoords);
+
+				deltaY = mouseCoords.y - getPosition().y;
+				deltaX = mouseCoords.x - getPosition().x;
+				angle = MathUtils.atan2(deltaY, deltaX);
+				setDirection(angle);
 
 				//Movement
 				int vertical = 0;
@@ -127,18 +127,9 @@ public class Player extends RangedEntity
 
 				move(new Vector2(horizontal, vertical));
 				break;
-			default:	//iOS, Android, other
-//				//Look direction
-//				if(Gdx.input.isTouched())
-//				{
-//					Vector3 touch = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
-//					camera.unproject(touch);
-//
-//					deltaY = touch.y - getPosition().y;
-//					deltaX = touch.x - getPosition().x;
-//					angle = MathUtils.atan2(deltaY, deltaX);
-//					setDirection(angle);
-//				}
+			case iOS:
+			case Android:
+				//NOTE: Look direction is handled by the aim controller in the GameHUD for mobile targets
 
 				//Movement
 				float defaultX = 0;

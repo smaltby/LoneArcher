@@ -1,5 +1,6 @@
 package me.seanmaltby.lonearcher.core.gui;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Action;
@@ -70,8 +71,11 @@ public class GameHUD
 		//Empty space between pause button and aim control
 		table.add().expandX();
 
-		AimControl aimControl = new AimControl();
-		table.add(aimControl).right().pad(aimControl.getWidth() / 4);
+		if(Gdx.app.getType().equals(Application.ApplicationType.Android) || Gdx.app.getType().equals(Application.ApplicationType.iOS))
+		{
+			AimControl aimControl = new AimControl();
+			table.add(aimControl).right().pad(aimControl.getWidth() / 2);
+		}
 
 		stage.addActor(table);
 	}
