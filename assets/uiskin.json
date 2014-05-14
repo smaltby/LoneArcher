@@ -10,8 +10,10 @@
     },
     "com.badlogic.gdx.graphics.g2d.BitmapFont": {
         "default": { "file": "fonts/default.fnt" },
-        "hobbyOfNight": { "file": "fonts/HobbyOfNight.fnt" },
-        "hobbyOfNight-Large": { "file": "fonts/HobbyOfNight-Large.fnt" }
+        "hobbyOfNight-17": { "file": "fonts/HobbyOfNight-17.fnt" },
+        "hobbyOfNight-20": { "file": "fonts/HobbyOfNight-20.fnt" },
+        "hobbyOfNight-30": { "file": "fonts/HobbyOfNight-30.fnt" },
+        "hobbyOfNight-150": { "file": "fonts/HobbyOfNight-150.fnt" }
     },
     "com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle": {
         "startButton": {
@@ -53,6 +55,9 @@
             "up": "EmberButton",
             "down": "EmberButtonDown",
             "disabled": "EmberButtonDisabled"
+        }, "pauseButton": {
+            "up": "PauseButton",
+            "down": "PauseButton"
         }
     },
     "com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle": {
@@ -72,11 +77,17 @@
         "default": {
               "font": "default",
               "fontColor": "white"
-        }, "hobbyOfNight": {
-            "font": "hobbyOfNight",
+        }, "hobbyOfNight-17": {
+            "font": "hobbyOfNight-17",
             "fontColor": "white"
-        }, "hobbyOfNight-Large": {
-            "font": "hobbyOfNight-Large",
+        }, "hobbyOfNight-20": {
+            "font": "hobbyOfNight-20",
+            "fontColor": "white"
+        }, "hobbyOfNight-30": {
+            "font": "hobbyOfNight-30",
+            "fontColor": "white"
+        }, "hobbyOfNight-150": {
+            "font": "hobbyOfNight-150",
             "fontColor": "white"
         }
     },

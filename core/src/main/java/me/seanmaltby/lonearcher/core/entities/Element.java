@@ -1,8 +1,9 @@
 package me.seanmaltby.lonearcher.core.entities;
 
 import com.badlogic.gdx.graphics.Color;
+import me.seanmaltby.lonearcher.core.utils.Weighted;
 
-public enum Element
+public enum Element implements Weighted
 {
 	NORMAL(new Color(0, 0.15f, 0, 1), 1, 1), FAST(new Color(0, 0.47f, 0, 1), 2, .125f), POWER(new Color(0.37f, 0, 0, 1), 3, .1f),
 	POISON(new Color(0.29f, 0.78f, 0, 1), 5, .04f), ICE(new Color(0, 1, 1, 1), 5, .04f), FIRE(new Color(1, 0.29f, 0, 1), 5, .04f),

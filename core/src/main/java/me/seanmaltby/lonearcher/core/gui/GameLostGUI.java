@@ -33,7 +33,7 @@ public class GameLostGUI
 			}
 		});
 
-		Label youLoseLabel = new Label("You Lose", Global.uiSkin, "hobbyOfNight-Large");
+		Label youLoseLabel = new Label("You Lose", Global.uiSkin, "hobbyOfNight-150");
 		table.add(youLoseLabel);
 
 		stage.addActor(table);

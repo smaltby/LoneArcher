@@ -25,7 +25,7 @@ public class NextWaveGUI
 		table = new Table(Global.uiSkin);
 		table.setFillParent(true);
 
-		final Label waveLabel = new Label("Wave "+wave, Global.uiSkin, "hobbyOfNight-Large");
+		final Label waveLabel = new Label("Wave "+wave, Global.uiSkin, "hobbyOfNight-150");
 		table.add(waveLabel);
 
 		stage.addActor(table);

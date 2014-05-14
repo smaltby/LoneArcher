@@ -1,11 +1,16 @@
 package me.seanmaltby.lonearcher.core.gui;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import me.seanmaltby.lonearcher.core.Global;
 import me.seanmaltby.lonearcher.core.entities.EntityAttribute;
 import me.seanmaltby.lonearcher.core.entities.Player;
@@ -52,9 +57,21 @@ public class GameHUD
 		table.add().expandX();
 
 		//Money
-		Label moneyLabel = new Label("Money - $0", Global.uiSkin, "hobbyOfNight");
+		Label moneyLabel = new Label("Money - $0", Global.uiSkin, "hobbyOfNight-30");
 		moneyLabel.addAction(new UpdateMoney());
 		table.add(moneyLabel).top();
+
+		table.row().expandY().bottom();
+
+		Button pauseButton = new Button(Global.uiSkin, "pauseButton");
+		//TODO Pause on click
+		table.add(pauseButton).left();
+
+		//Empty space between pause button and aim control
+		table.add().expandX();
+
+		AimControl aimControl = new AimControl();
+		table.add(aimControl).right().pad(aimControl.getWidth() / 4);
 
 		stage.addActor(table);
 	}
@@ -68,7 +85,7 @@ public class GameHUD
 	{
 		private CroppedTextureRegion healthBar;
 
-		public CropHealthBar(CroppedTextureRegion healthBar)
+		CropHealthBar(CroppedTextureRegion healthBar)
 		{
 			this.healthBar = healthBar;
 		}
@@ -90,6 +107,66 @@ public class GameHUD
 			Label label = (Label) getActor();
 			label.setText("Money - $"+Global.gameScreen.getPlayer().getMoney());
 			return false;
+		}
+	}
+
+	class AimControl extends Group
+	{
+		private Image analogStick;
+
+		AimControl()
+		{
+			addActor(new Image(Global.uiSkin, "AnalogStickBackground"));
+			addActor(analogStick = new Image(Global.uiSkin, "AnalogStick"));
+			analogStick.addListener(new ClickListener()
+			{
+				@Override
+				public boolean touchDown(InputEvent event, float x, float y, int pointer, int button)
+				{
+					super.touchDown(event, x, y, pointer, button);
+					analogStick.addAction(new UpdateAim(new Vector2(Gdx.input.getX(), Gdx.input.getY()), analogStick.getImageWidth() / 2));
+
+					return true;
+				}
+			});
+
+			setSize(analogStick.getWidth(), analogStick.getHeight());
+		}
+	}
+
+	class UpdateAim extends Action
+	{
+		private Vector2 initialTouch;
+		private float maxRadius;
+
+		UpdateAim(Vector2 initialTouch, float maxRadius)
+		{
+			this.initialTouch = initialTouch;
+			this.maxRadius = maxRadius;
+		}
+
+		@Override
+		public boolean act(float delta)
+		{
+			Image analogStick = (Image) getActor();
+			Player player = Global.gameScreen.getPlayer();
+
+			if(Gdx.input.isTouched())
+			{
+				//Reverse the y coordinates because the y axis is flipped for inputs
+				Vector2 deltaPosition = new Vector2(Gdx.input.getX() - initialTouch.x, initialTouch.y - Gdx.input.getY());
+				float distance = Math.min(deltaPosition.len(), maxRadius);
+				deltaPosition.nor().scl(distance);
+
+				analogStick.setPosition(deltaPosition.x, deltaPosition.y);
+				player.setDirection(deltaPosition.getAngleRad());
+
+				return false;
+			} else
+			{
+				analogStick.setPosition(0, 0);
+				return true;
+			}
 		}
 	}
 }

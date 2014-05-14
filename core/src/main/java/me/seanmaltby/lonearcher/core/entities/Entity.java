@@ -256,6 +256,10 @@ public abstract class Entity
 		return body.getAngle();
 	}
 
+	/**
+	 * Sets the direction of the entity in radians.
+	 * @param direction		direction, in radians
+	 */
 	public void setDirection(float direction)
 	{
 		body.setTransform(body.getPosition().x, body.getPosition().y, direction);

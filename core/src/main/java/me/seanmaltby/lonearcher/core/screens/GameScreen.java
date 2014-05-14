@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 import me.seanmaltby.lonearcher.core.*;
 import me.seanmaltby.lonearcher.core.entities.Entity;
 import me.seanmaltby.lonearcher.core.entities.Player;
@@ -41,7 +41,7 @@ public class GameScreen implements Screen
 
 	public GameScreen()
 	{
-		stage = new Stage(new FitViewport(Global.VIRTUAL_WIDTH, Global.VIRTUAL_HEIGHT));
+		stage = new Stage(new StretchViewport(Global.VIRTUAL_WIDTH, Global.VIRTUAL_HEIGHT));
 		camera = new OrthographicCamera(Global.VIRTUAL_WIDTH, Global.VIRTUAL_HEIGHT);
 	}
 
@@ -54,6 +54,7 @@ public class GameScreen implements Screen
 
 		gameHUD = new GameHUD(stage);
 
+		//Order entities by the layer they're in, so they get drawn in the correct order
 		entities = new TreeSet<>(new Comparator<Entity>()
 		{
 			@Override
@@ -74,7 +75,7 @@ public class GameScreen implements Screen
 		//Start music
 		music = Gdx.audio.newMusic(Gdx.files.internal("sounds/GameMusic1.wav"));
 		music.setLooping(true);
-		music.play();
+		//music.play();
 
 		//Start the game
 		waveHandler.start();
@@ -140,7 +141,6 @@ public class GameScreen implements Screen
 		//Update and draw stage
 		stage.act(delta);
 		stage.draw();
-//		Table.drawDebug(stage);
 	}
 
 	private void drawBackground()

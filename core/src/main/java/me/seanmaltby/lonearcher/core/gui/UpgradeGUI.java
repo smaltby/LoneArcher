@@ -51,7 +51,7 @@ public class UpgradeGUI
 		upgradeWindow.setHeight(appHeight * .8f);
 		upgradeWindow.setX(appWidth / 2f - upgradeWindow.getWidth() / 2f);
 		upgradeWindow.setY(appHeight / 2f - upgradeWindow.getHeight() / 2f);
-		upgradeWindow.pad(20f);
+		upgradeWindow.pad(30f);
 		upgradeWindow.left();
 
 		Table upgradePaths = new Table(Global.uiSkin);
@@ -66,7 +66,7 @@ public class UpgradeGUI
 
 		createUpgradeButtons(upgradeButtons);
 
-		upgradePathsList.add(new UpgradePath("Health", 45, 2, EntityAttribute.MAX_HEALTH, 5, 1.5f, 5, false));
+		upgradePathsList.add(new UpgradePath("Health", 45, 2, EntityAttribute.MAX_HEALTH, 5, 1, 5, false));
 		upgradePathsList.add(new UpgradePath("Damage", 75, 2, EntityAttribute.DAMAGE, 2, 1, 5, false));
 		upgradePathsList.add(new UpgradePath("Attack Speed", 60, 2, EntityAttribute.ATTACK_SPEED, 0.5f, 1, 5, false));
 		upgradePathsList.add(new UpgradePath("Move Speed", 45, 2, EntityAttribute.SPEED, 0.5f, 1, 5, false));
@@ -105,7 +105,7 @@ public class UpgradeGUI
 	private void createUpgradeButtons(Table upgradeButtons)
 	{
 		final Player player = Global.gameScreen.getPlayer();
-		upgradeButtonsList.add(new UpgradeButton(Global.uiSkin, "tripleShot", 1200, new Runnable()
+		upgradeButtonsList.add(new UpgradeButton("Triple Shot", Global.uiSkin, "tripleShot", 1200, new Runnable()
 		{
 			@Override
 			public void run()
@@ -113,7 +113,7 @@ public class UpgradeGUI
 				player.setAttribute(EntityAttribute.PROJECTILES, 3);
 			}
 		}));
-		upgradeButtonsList.add(new UpgradeButton(Global.uiSkin, "explosion", 1500, new Runnable()
+		upgradeButtonsList.add(new UpgradeButton("Explosive Arrows", Global.uiSkin, "explosion", 1500, new Runnable()
 		{
 			@Override
 			public void run()
@@ -122,7 +122,7 @@ public class UpgradeGUI
 				player.setAttribute(EntityAttribute.DAMAGE, player.getAttributeFloat(EntityAttribute.DAMAGE) + 5);
 			}
 		}));
-		upgradeButtonsList.add(new UpgradeButton(Global.uiSkin, "revive", 450, new Runnable()
+		upgradeButtonsList.add(new UpgradeButton("Revive on Death", Global.uiSkin, "revive", 450, new Runnable()
 		{
 			@Override
 			public void run()
@@ -130,7 +130,7 @@ public class UpgradeGUI
 				player.setRevive(true);
 			}
 		}));
-		upgradeButtonsList.add(new UpgradeButton(Global.uiSkin, "knockback", 600, new Runnable()
+		upgradeButtonsList.add(new UpgradeButton("Knockback", Global.uiSkin, "knockback", 600, new Runnable()
 		{
 			@Override
 			public void run()
@@ -138,7 +138,7 @@ public class UpgradeGUI
 				player.setAttribute(EntityAttribute.KNOCKBACK, 5f);
 			}
 		}));
-		upgradeButtonsList.add(new UpgradeButton(Global.uiSkin, "regen", 900, new Runnable()
+		upgradeButtonsList.add(new UpgradeButton("Health Regen", Global.uiSkin, "regen", 900, new Runnable()
 		{
 			@Override
 			public void run()
@@ -146,7 +146,7 @@ public class UpgradeGUI
 				player.setRegen(true);
 			}
 		}));
-		upgradeButtonsList.add(new UpgradeButton(Global.uiSkin, "ember", 450, new Runnable()
+		upgradeButtonsList.add(new UpgradeButton("Fire Arrows", Global.uiSkin, "ember", 450, new Runnable()
 		{
 			@Override
 			public void run()
@@ -198,6 +198,7 @@ public class UpgradeGUI
 
 		private Button[] radios;
 		private Label nameLabel;
+		private Label costLabel;
 		private Button plus;
 
 		private int upgradeLevel = 0;
@@ -233,9 +234,15 @@ public class UpgradeGUI
 
 		private void addActors()
 		{
-			String labelString = "+"+attributeIncrease+" "+name+"($"+cost+")";
-			nameLabel = new Label(labelString, Global.uiSkin, "hobbyOfNight");
-			add(nameLabel).width(275f);
+			String nameString = "+"+attributeIncrease+" "+name;
+			nameLabel = new Label(nameString, Global.uiSkin, "hobbyOfNight-20");
+			add(nameLabel).width(250f).colspan(numUpgrades + 1); //+1 to take into account the empty cell after the radio buttons
+
+			String costString = "$"+cost;
+			costLabel = new Label(costString, Global.uiSkin, "hobbyOfNight-20");
+			add(costLabel);
+
+			row();
 
 			radios = new Button[numUpgrades];
 			for(int i = 0; i < numUpgrades; i++)
@@ -244,6 +251,7 @@ public class UpgradeGUI
 				radios[i].setTouchable(Touchable.disabled);
 				add(radios[i]).pad(2f);
 			}
+			add().expandX();
 
 			plus = new Button(Global.uiSkin, "upgradePlus");
 			plus.addListener(new ClickListener()
@@ -273,15 +281,17 @@ public class UpgradeGUI
 						player.setAttribute(attribute, player.getAttributeFloat(attribute) + attributeIncrease);
 					attributeIncrease *= increaseMultiplier;
 					cost *= costMultiplier;
-					nameLabel.setText("+"+attributeIncrease+" "+name+" ($"+cost+")");
 
+					nameLabel.setText("+"+attributeIncrease+" "+name);
+					costLabel.setText("$"+cost);
+					costLabel.setWidth(150f);
 
 					updateStats();
 					updateDisabledStatuses();
 				}
 			});
 
-			add(plus).pad(2f);
+			add(plus).pad(2f).left();
 		}
 
 		void updateDisabledStatus()
@@ -296,15 +306,16 @@ public class UpgradeGUI
 		}
 	}
 
-	class UpgradeButton extends Group
+	class UpgradeButton extends Table
 	{
 		private float cost;
 		private boolean used = false;
 
 		private Button button;
 		private Label costLabel;
+		private Label nameLabel;
 
-		UpgradeButton(Skin uiSkin, String style, final float cost, final Runnable onBuy)
+		UpgradeButton(String name, Skin uiSkin, String style, final float cost, final Runnable onBuy)
 		{
 			button = new Button(uiSkin, style);
 			this.cost = cost;
@@ -328,13 +339,18 @@ public class UpgradeGUI
 					updateDisabledStatuses();
 				}
 			});
-			costLabel = new Label("$"+cost, Global.uiSkin, "hobbyOfNight");
-			costLabel.setFontScale(.75f);
+			costLabel = new Label("$"+cost, Global.uiSkin, "hobbyOfNight-17");
+			costLabel.setTouchable(Touchable.childrenOnly);
 
-			addActor(button);
-			addActor(costLabel);
+			Group buttonGroup = new Group();
+			buttonGroup.addActor(button);
+			buttonGroup.addActor(costLabel);
+			buttonGroup.setSize(button.getWidth(), button.getHeight());
 
-			setSize(button.getWidth(), button.getHeight());
+			add(buttonGroup).center();
+			row();
+			nameLabel = new Label(name, Global.uiSkin, "hobbyOfNight-20");
+			add(nameLabel);
 		}
 
 		void updateDisabledStatus()
@@ -362,8 +378,8 @@ public class UpgradeGUI
 			this.icon = icon;
 			this.attribute = attribute;
 
-			attributeLabel = new Label(attribute.name(), Global.uiSkin, "hobbyOfNight");
-			valueLabel = new Label("", Global.uiSkin, "hobbyOfNight");
+			attributeLabel = new Label(attribute.name(), Global.uiSkin, "hobbyOfNight-20");
+			valueLabel = new Label("", Global.uiSkin, "hobbyOfNight-20");
 			updateValue();
 
 			addActors();

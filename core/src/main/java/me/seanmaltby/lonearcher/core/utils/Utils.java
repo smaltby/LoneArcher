@@ -10,9 +10,12 @@ import com.brashmonkey.spriter.Player;
 import com.brashmonkey.spriter.Point;
 import com.brashmonkey.spriter.Timeline;
 import me.seanmaltby.lonearcher.core.Global;
+import me.seanmaltby.lonearcher.core.entities.Element;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 /**
  * Miscellaneous utility methods.
@@ -169,5 +172,33 @@ public class Utils
 	public static Vector2 toWorldCoordinates(Vector2 box2dCoordinates)
 	{
 		return new Vector2(box2dCoordinates).scl(Global.BOX_TO_WORLD);
+	}
+
+	public static <T extends Weighted> T chooseWeighted(T[] weighteds, int currentWave)
+	{
+		float totalWeight = 0;
+		List<T> valid = new ArrayList<>();
+		for(T weighted : weighteds)
+		{
+			if(currentWave >= weighted.getMinWave())
+			{
+				totalWeight += weighted.getWeight();
+				valid.add(weighted);
+			}
+		}
+
+		int randomIndex = -1;
+		double random = Math.random() * totalWeight;
+		for (int i = 0; i < valid.size(); ++i)
+		{
+			random -= valid.get(i).getWeight();
+			if (random <= 0.0d)
+			{
+				randomIndex = i;
+				break;
+			}
+		}
+
+		return valid.get(randomIndex);
 	}
 }

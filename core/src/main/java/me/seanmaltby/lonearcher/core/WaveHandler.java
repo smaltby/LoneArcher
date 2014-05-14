@@ -8,6 +8,7 @@ import me.seanmaltby.lonearcher.core.gui.GameLostGUI;
 import me.seanmaltby.lonearcher.core.gui.NextWaveGUI;
 import me.seanmaltby.lonearcher.core.gui.UpgradeGUI;
 import me.seanmaltby.lonearcher.core.screens.GameScreen;
+import me.seanmaltby.lonearcher.core.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -149,48 +150,11 @@ public class WaveHandler
 
 	private LivingEntity chooseEnemy(Vector2 location, float angle, World world)
 	{
-		switch((int) (Math.random() * 5))
-		{
-			case 0:
-				return new Puncher(location, angle, world);
-			case 1:
-				return new Puncher(location, angle, world);
-			case 2:
-				return new Puncher(location, angle, world);
-			case 3:
-				return new Swordsman(location, angle, world);
-			case 4:
-				return new Giant(location, angle, world);
-			default:
-				return null;
-		}
+		return Utils.chooseWeighted(EntityType.values(), wave).createEntity(location, angle, world);
 	}
 
 	private Element chooseElement()
 	{
-		float totalWeight = 0;
-		List<Element> validElements = new ArrayList<>();
-		for(Element element : Element.values())
-		{
-			if(wave >= element.getMinWave())
-			{
-				totalWeight += element.getWeight();
-				validElements.add(element);
-			}
-		}
-
-		int randomIndex = -1;
-		double random = Math.random() * totalWeight;
-		for (int i = 0; i < validElements.size(); ++i)
-		{
-			random -= validElements.get(i).getWeight();
-			if (random <= 0.0d)
-			{
-				randomIndex = i;
-				break;
-			}
-		}
-
-		return validElements.get(randomIndex);
+		return Utils.chooseWeighted(Element.values(), wave);
 	}
 }
