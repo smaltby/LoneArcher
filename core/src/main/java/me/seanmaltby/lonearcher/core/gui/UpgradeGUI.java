@@ -1,5 +1,6 @@
 package me.seanmaltby.lonearcher.core.gui;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -43,8 +44,8 @@ public class UpgradeGUI
 	{
 		initialized = true;
 
-		int appWidth = Global.VIRTUAL_WIDTH;
-		int appHeight = Global.VIRTUAL_HEIGHT;
+		int appWidth = Gdx.graphics.getWidth();
+		int appHeight = Gdx.graphics.getHeight();
 
 		upgradeWindow.setTitleAlignment(Align.bottom);
 		upgradeWindow.setWidth(appWidth * .9f);

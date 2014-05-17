@@ -165,7 +165,7 @@ public class GameHUD
 			Image analogStick = (Image) getActor();
 			Player player = Global.gameScreen.getPlayer();
 
-			if(Gdx.input.isTouched())
+			if(Gdx.input.isTouched() && player.isAlive())
 			{
 				//Reverse the y coordinates because the y axis is flipped for inputs
 				Vector2 deltaPosition = new Vector2(Gdx.input.getX() - initialTouch.x, initialTouch.y - Gdx.input.getY());
