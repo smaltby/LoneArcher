@@ -28,7 +28,7 @@
             "up": "PlusButton",
             "down": "PlusButtonDown",
             "disabled": "PlusButtonDisabled"
-        }, "upgradeRadio": {
+        }, "radio": {
             "up": "UncheckedRadio",
             "checked": "CheckedRadio"
         }, "tripleShot": {
@@ -58,11 +58,19 @@
         }, "pauseButton": {
             "up": "PauseButton",
             "down": "PauseButton"
+        }, "soundButton": {
+            "up": "MuteButton",
+            "checked": "SoundButton"
+        }, "musicButton": {
+            "up": "MusicOffButton",
+            "checked": "MusicButton"
+        }, "backButton": {
+            "up": "BackButton"
         }
     },
     "com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle": {
         "default": {
-            "titleFont": "default",
+            "titleFont": "hobbyOfNight-20",
             "titleFontColor": "white",
             "background": "WindowBackground",
             "stageBackground": "windowStageBackground"

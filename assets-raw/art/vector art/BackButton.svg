@@ -12,18 +12,18 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="48"
    height="48"
-   id="svg4408"
+   id="svg3418"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="New document 11">
+   sodipodi:docname="New document 2">
   <defs
-     id="defs4410">
+     id="defs3420">
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#gradient13"
-       id="linearGradient3643"
+       xlink:href="#gradient10"
+       id="linearGradient3398"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0,-0.02929688,0.02929688,0,104,364)"
+       gradientTransform="matrix(0,-0.02929688,0.02929688,0,284,424)"
        spreadMethod="pad"
        x1="-819.20001"
        x2="819.20001" />
@@ -32,16 +32,16 @@
        x1="-819.20001"
        x2="819.20001"
        spreadMethod="pad"
-       gradientTransform="matrix(0,-0.02929688,0.02929688,0,104,364)"
-       id="gradient13">
+       gradientTransform="matrix(0,-0.02929688,0.02929688,0,284,424)"
+       id="gradient10">
       <stop
          offset="0"
          stop-color="#383838"
-         id="stop72" />
+         id="stop57" />
       <stop
          offset="1"
          stop-color="#585858"
-         id="stop74" />
+         id="stop59" />
     </linearGradient>
   </defs>
   <sodipodi:namedview
@@ -57,18 +57,18 @@
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
+     inkscape:showpageshadow="false"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:showpageshadow="false"
      inkscape:window-width="1600"
      inkscape:window-height="838"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
-     id="metadata4413">
+     id="metadata3423">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -85,28 +85,23 @@
      id="layer1"
      transform="translate(0,-1004.3622)">
     <g
-       transform="translate(-80,664.36218)"
-       id="g4060">
+       id="g3393"
+       transform="matrix(-1,0,0,1,308,604.36218)">
       <path
-         d="m 80,383.05 0,-37.85 q 0,-5.2 5.2,-5.2 l 37.65,0 q 5.15,0 5.15,5.2 l 0,37.85 q -0.1,4.95 -5.15,4.95 l -37.65,0 q -5.1,0 -5.2,-4.95 M 122.85,343 85.2,343 q -2.2,0 -2.2,2.2 l 0,37.85 q 0.1,1.95 2.2,1.95 l 37.65,0 q 2.05,0 2.15,-1.95 l 0,-37.85 q 0,-2.2 -2.15,-2.2"
-         id="path325"
-         style="fill:url(#linearGradient3643);stroke:none"
-         inkscape:connector-curvature="0" />
-      <path
-         d="m 122.85,343 q 2.15,0 2.15,2.2 l 0,37.85 q -0.1,1.95 -2.15,1.95 l -37.65,0 q -2.1,0 -2.2,-1.95 l 0,-37.85 q 0,-2.2 2.2,-2.2 l 37.65,0"
-         id="path327"
+         d="m 305,405.2 0,37.85 q -0.1,1.95 -2.15,1.95 l -37.65,0 q -2.1,0 -2.2,-1.95 l 0,-37.85 q 0,-2.2 2.2,-2.2 l 37.65,0 q 2.15,0 2.15,2.2"
+         id="path313"
          inkscape:connector-curvature="0"
          style="fill:#383838;stroke:none" />
       <path
-         inkscape:connector-curvature="0"
-         style="fill:#ffffff;stroke:none"
-         d="m 94,352 6,0 q 2,0 2,2 l 0,20 q 0,2 -2,2 l -6,0 q -2,0 -2,-2 l 0,-20 q 0,-2 2,-2"
-         id="path3854" />
+         d="m 305,405.2 q 0,-2.2 -2.15,-2.2 l -37.65,0 q -2.2,0 -2.2,2.2 l 0,37.85 q 0.1,1.95 2.2,1.95 l 37.65,0 q 2.05,0 2.15,-1.95 l 0,-37.85 m 3,0 0,37.85 q -0.1,4.95 -5.15,4.95 l -37.65,0 q -5.1,0 -5.2,-4.95 l 0,-37.85 q 0,-5.2 5.2,-5.2 l 37.65,0 q 5.15,0 5.15,5.2"
+         id="path315"
+         style="fill:url(#linearGradient3398);stroke:none"
+         inkscape:connector-curvature="0" />
       <path
          inkscape:connector-curvature="0"
          style="fill:#ffffff;stroke:none"
-         d="m 114,352 q 2,0 2,2 l 0,20 q 0,2 -2,2 l -6,0 q -2,0 -2,-2 l 0,-20 q 0,-2 2,-2 l 6,0"
-         id="path3852" />
+         d="m 284.85,415.25 0.65,0.1 11.05,9.15 0.2,0.5 -0.2,0.45 -0.05,0 -11.15,8.45 q -0.3,0.2 -0.7,0 -0.35,-0.2 -0.3,-0.6 l 0.5,-4.25 q -8.45,0.2 -13.7,3.4 1.85,-9.85 13.8,-12.3 l -0.45,-4.3 q 0,-0.35 0.35,-0.6"
+         id="path3834" />
     </g>
   </g>
 </svg>

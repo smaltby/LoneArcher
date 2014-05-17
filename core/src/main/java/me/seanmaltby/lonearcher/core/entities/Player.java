@@ -18,7 +18,7 @@ public class Player extends RangedEntity
 	private boolean regen = false;
 	private boolean ember = false;
 
-	private float money = 11110f;
+	private float money = 100f;
 
 	public Player(Vector2 position, float direction, World b2World)
 	{
@@ -29,7 +29,7 @@ public class Player extends RangedEntity
 		setAttribute(EntityAttribute.MAX_HEALTH, 20f);
 		setAttribute(EntityAttribute.DAMAGE, 5f);
 		setAttribute(EntityAttribute.ATTACK_SPEED, 2f);
-		setAttribute(EntityAttribute.SPEED, 2.5f);
+		setAttribute(EntityAttribute.SPEED, 2.75f);
 	}
 
 	@Override

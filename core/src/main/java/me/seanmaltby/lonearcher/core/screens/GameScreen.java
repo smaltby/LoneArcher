@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.badlogic.gdx.utils.viewport.FillViewport;
 import me.seanmaltby.lonearcher.core.*;
 import me.seanmaltby.lonearcher.core.entities.Entity;
 import me.seanmaltby.lonearcher.core.entities.Player;
@@ -39,9 +39,11 @@ public class GameScreen implements Screen
 	private OrthographicCamera camera;
 	private Music music;
 
+	private boolean paused = false;
+
 	public GameScreen()
 	{
-		stage = new Stage(new StretchViewport(Global.VIRTUAL_WIDTH, Global.VIRTUAL_HEIGHT));
+		stage = new Stage(new FillViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
 		camera = new OrthographicCamera(Global.VIRTUAL_WIDTH, Global.VIRTUAL_HEIGHT);
 	}
 
@@ -100,26 +102,32 @@ public class GameScreen implements Screen
 	@Override
 	public void render(float delta)
 	{
-		waveHandler.update(delta);
-
-		//Update world
-		b2World.step(delta, 6, 2);
-		//Update entities
-		for(Entity entity : entities)
+		if(!paused)
 		{
-			//Update entity
-			entity.update(delta);
+			waveHandler.update(delta);
+
+			//Update world
+			b2World.step(delta, 6, 2);
+			//Update entities
+			for (Entity entity : entities)
+			{
+				//Update entity
+				entity.update(delta);
+			}
+
+			//Add and remove all necessary entities
+			entities.addAll(entitiesToAdd);
+			entitiesToAdd.clear();
+			entities.removeAll(entitiesToRemove);
+			for (Entity entity : entitiesToRemove)
+				entity.destroy();
+			entitiesToRemove.clear();
+
+			updateCamera();
+
+			//Update and draw particle effects
+			ParticleEffectManager.render(delta);
 		}
-
-		//Add and remove all necessary entities
-		entities.addAll(entitiesToAdd);
-		entitiesToAdd.clear();
-		entities.removeAll(entitiesToRemove);
-		for(Entity entity : entitiesToRemove)
-			entity.destroy();
-		entitiesToRemove.clear();
-
-		updateCamera();
 
 		//Draw background
 		drawBackground();
@@ -131,9 +139,6 @@ public class GameScreen implements Screen
 			entity.draw(delta);
 		}
 		Global.batch.end();
-
-		//Draw particle effects
-		ParticleEffectManager.render(delta);
 
 //		Box2DDebugRenderer debugRenderer = new Box2DDebugRenderer();
 //		debugRenderer.render(b2World, camera.combined.scl(Global.BOX_TO_WORLD));
@@ -239,13 +244,13 @@ public class GameScreen implements Screen
 	@Override
 	public void pause()
 	{
-
+		paused = true;
 	}
 
 	@Override
 	public void resume()
 	{
-
+		paused = false;
 	}
 
 	@Override

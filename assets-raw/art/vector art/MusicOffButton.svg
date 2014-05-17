@@ -10,20 +10,20 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="32"
-   height="32"
-   id="svg4765"
+   width="64"
+   height="64"
+   id="svg3401"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="CheckedRadio.svg">
+   sodipodi:docname="MusicOffButton.svg">
   <defs
-     id="defs4767">
+     id="defs3403">
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#gradient23"
-       id="linearGradient3603"
+       xlink:href="#gradient8"
+       id="linearGradient3662"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0,-0.04882812,0.04882812,0,430,470)"
+       gradientTransform="matrix(0,-0.02929688,0.02929688,0,164,424)"
        spreadMethod="pad"
        x1="-819.20001"
        x2="819.20001" />
@@ -32,23 +32,23 @@
        x1="-819.20001"
        x2="819.20001"
        spreadMethod="pad"
-       gradientTransform="matrix(0,-0.04882812,0.04882812,0,430,470)"
-       id="gradient23">
+       gradientTransform="matrix(0,-0.02929688,0.02929688,0,164,424)"
+       id="gradient8">
       <stop
          offset="0"
          stop-color="#383838"
-         id="stop122" />
+         id="stop47" />
       <stop
          offset="1"
          stop-color="#585858"
-         id="stop124" />
+         id="stop49" />
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#gradient47"
-       id="linearGradient3503"
+       xlink:href="#gradient9"
+       id="linearGradient3658"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0,-0.04882812,0.04882812,0,700,560)"
+       gradientTransform="matrix(0,-0.02929688,0.02929688,0,224,424)"
        spreadMethod="pad"
        x1="-819.20001"
        x2="819.20001" />
@@ -57,16 +57,16 @@
        x1="-819.20001"
        x2="819.20001"
        spreadMethod="pad"
-       gradientTransform="matrix(0,-0.04882812,0.04882812,0,700,560)"
-       id="gradient47">
+       gradientTransform="matrix(0,-0.02929688,0.02929688,0,224,424)"
+       id="gradient9">
       <stop
          offset="0"
          stop-color="#383838"
-         id="stop242" />
+         id="stop52" />
       <stop
          offset="1"
          stop-color="#585858"
-         id="stop244" />
+         id="stop54" />
     </linearGradient>
   </defs>
   <sodipodi:namedview
@@ -77,24 +77,23 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="375"
-     inkscape:cy="405.71428"
+     inkscape:cx="375.00001"
+     inkscape:cy="519.99999"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
+     inkscape:showpageshadow="false"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     showborder="true"
-     inkscape:showpageshadow="false"
      inkscape:window-width="1600"
      inkscape:window-height="838"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
-     id="metadata4770">
+     id="metadata3406">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -109,35 +108,25 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-1020.3622)">
+     transform="translate(10e-6,-988.36219)">
     <g
-       transform="matrix(0.4,0,0,0.4,-264,812.3622)"
-       id="g4636">
+       transform="matrix(1.3333333,0,0,1.3333333,-266.66667,455.02887)"
+       id="g3396">
       <path
-         d="M 728.25,531.7 Q 740,543.45 740,560 740,576.55 728.25,588.25 716.55,600 700,600 683.35,600 671.65,588.25 660,576.55 660,560 660,543.45 671.65,531.7 683.35,520 700,520 q 16.55,0 28.25,11.7 m -4.05,4.05 Q 714.25,525.7 700,525.7 q -14.25,0 -24.25,10.05 -10.05,10.1 -10.05,24.25 0,14.25 10.05,24.2 10,10.1 24.25,10.1 14.25,0 24.2,-10.1 10.1,-9.95 10.1,-24.2 0,-14.15 -10.1,-24.25"
-         id="path469"
-         style="fill:url(#linearGradient3503);stroke:none"
-         inkscape:connector-curvature="0" />
-      <path
-         d="m 724.2,535.75 q 10.1,10.1 10.1,24.25 0,14.25 -10.1,24.2 -9.95,10.1 -24.2,10.1 -14.25,0 -24.25,-10.1 -10.05,-9.95 -10.05,-24.2 0,-14.15 10.05,-24.25 10,-10.05 24.25,-10.05 14.25,0 24.2,10.05"
-         id="path471"
+         d="m 245,405.2 0,37.85 q -0.1,1.95 -2.15,1.95 l -37.65,0 q -2.1,0 -2.2,-1.95 l 0,-37.85 q 0,-2.2 2.2,-2.2 l 37.65,0 q 2.15,0 2.15,2.2"
+         id="path309"
          inkscape:connector-curvature="0"
          style="fill:#383838;stroke:none" />
       <path
-         inkscape:connector-curvature="0"
-         style="fill:#ffffff;stroke:none"
-         d="m 708.55,553.45 q -3.15,-3.1 -7.55,-3.1 -4.45,0 -7.55,3.1 -3.15,3.15 -3.15,7.55 0,4.45 3.15,7.55 3.1,3.15 7.55,3.15 4.4,0 7.5,-3.15 l 0.05,0 q 3.1,-3.1 3.1,-7.55 0,-4.4 -3.1,-7.55"
-         id="path3862" />
+         d="m 245,405.2 q 0,-2.2 -2.15,-2.2 l -37.65,0 q -2.2,0 -2.2,2.2 l 0,37.85 q 0.1,1.95 2.2,1.95 l 37.65,0 q 2.05,0 2.15,-1.95 l 0,-37.85 m 3,0 0,37.85 q -0.1,4.95 -5.15,4.95 l -37.65,0 q -5.1,0 -5.2,-4.95 l 0,-37.85 q 0,-5.2 5.2,-5.2 l 37.65,0 q 5.15,0 5.15,5.2"
+         id="path311"
+         style="fill:url(#linearGradient3658);stroke:none"
+         inkscape:connector-curvature="0" />
       <path
+         d="m 233.05,416.05 0,10.85 0,0.1 q -0.2,1.95 -1.4,3.2 l -0.05,0 q -1.3,1.4 -3,1.55 l -0.05,0 q -1.8,0.15 -3,-1.1 -1.15,-1.15 -1,-3.05 0.2,-1.7 1.45,-3 1.15,-1.2 2.6,-1.4 l -0.05,0 1.25,-0.1 0,-3.35 -7.25,0 0,11.25 q 0,2.05 -1.5,3.4 l -0.05,0.1 q -1.25,1.25 -2.9,1.45 l -0.05,0 q -1.85,0.15 -3,-1.05 -1.2,-1.15 -1,-3 0.15,-1.75 1.4,-3.05 l 0.05,-0.05 q 1.15,-1.15 2.55,-1.4 l 0.05,0 1.25,-0.05 0,-11.3 q 0,-2.05 2.05,-2.05 l 9.55,0 q 2.1,0 2.1,2.05"
+         id="path497"
          inkscape:connector-curvature="0"
-         style="fill:#ffffff;stroke:none"
-         d="m 713,549 q 5,5 5,12 0,7.05 -5,12.05 -5,4.95 -12,4.95 -7.05,0 -12.05,-4.95 -4.95,-5 -4.95,-12.05 0,-7 4.9,-12 l 0.05,0 0,-0.05 q 5,-4.95 12.05,-4.95 7,0 12,5"
-         id="path3860" />
-      <path
-         inkscape:connector-curvature="0"
-         style="fill:#ffffff;stroke:none"
-         d="m 705.25,556.75 q 1.75,1.75 1.75,4.25 0,2.5 -1.75,4.25 -1.8,1.8 -4.25,1.8 -2.55,0 -4.3,-1.8 -1.75,-1.75 -1.75,-4.25 0,-2.5 1.75,-4.25 1.75,-1.75 4.3,-1.75 2.45,0 4.25,1.75"
-         id="path3858" />
+         style="fill:#ffffff;fill-opacity:0.30196078;stroke:none" />
     </g>
   </g>
 </svg>

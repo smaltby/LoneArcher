@@ -69,7 +69,7 @@ public class UpgradeGUI
 		upgradePathsList.add(new UpgradePath("Health", 45, 2, EntityAttribute.MAX_HEALTH, 5, 1, 5, false));
 		upgradePathsList.add(new UpgradePath("Damage", 75, 2, EntityAttribute.DAMAGE, 2, 1, 5, false));
 		upgradePathsList.add(new UpgradePath("Attack Speed", 60, 2, EntityAttribute.ATTACK_SPEED, 0.5f, 1, 5, false));
-		upgradePathsList.add(new UpgradePath("Move Speed", 45, 2, EntityAttribute.SPEED, 0.5f, 1, 5, false));
+		upgradePathsList.add(new UpgradePath("Move Speed", 45, 2, EntityAttribute.SPEED, 0.25f, 1, 5, false));
 		upgradePathsList.add(new UpgradePath("Piercing", 240, 1.5f, EntityAttribute.PIERCING, 1, 1, 3, true));
 
 		for(UpgradePath path : upgradePathsList)
@@ -247,7 +247,7 @@ public class UpgradeGUI
 			radios = new Button[numUpgrades];
 			for(int i = 0; i < numUpgrades; i++)
 			{
-				radios[i] = new Button(Global.uiSkin, "upgradeRadio");
+				radios[i] = new Button(Global.uiSkin, "radio");
 				radios[i].setTouchable(Touchable.disabled);
 				add(radios[i]).pad(2f);
 			}

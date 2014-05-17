@@ -15,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import me.seanmaltby.lonearcher.core.Global;
 import me.seanmaltby.lonearcher.core.entities.EntityAttribute;
 import me.seanmaltby.lonearcher.core.entities.Player;
+import me.seanmaltby.lonearcher.core.screens.OptionsGUI;
 import me.seanmaltby.lonearcher.core.utils.CroppedTextureRegion;
 
 public class GameHUD
@@ -65,7 +66,16 @@ public class GameHUD
 		table.row().expandY().bottom();
 
 		Button pauseButton = new Button(Global.uiSkin, "pauseButton");
-		//TODO Pause on click
+		pauseButton.addListener(new ClickListener()
+		{
+			@Override
+			public void clicked(InputEvent event, float x, float y)
+			{
+				super.clicked(event, x, y);
+				Global.gameScreen.pause();
+				new OptionsGUI(stage).open();
+			}
+		});
 		table.add(pauseButton).left();
 
 		//Empty space between pause button and aim control
