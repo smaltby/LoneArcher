@@ -44,7 +44,7 @@ public class OptionsGUI
 		table.defaults().center().space(20f);
 		Table backButtonTable = new Table(Global.uiSkin);
 		backButtonTable.setFillParent(true);
-		backButtonTable.top().left().defaults().pad(30f);
+		backButtonTable.top().left();
 
 		createDefaultTiltChoices(table);
 		createAimOptions(table);
