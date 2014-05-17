@@ -5,7 +5,7 @@ import me.seanmaltby.lonearcher.core.utils.Weighted;
 
 public enum Element implements Weighted
 {
-	NORMAL(new Color(0, 0.15f, 0, 1), 1, 1), FAST(new Color(0, 0.47f, 0, 1), 2, .125f), POWER(new Color(0.37f, 0, 0, 1), 3, .1f),
+	NORMAL(new Color(0, 0.15f, 0, 1), 1, 1), POWER(new Color(0.37f, 0, 0, 1), 2, .1f), FAST(new Color(0, 0.47f, 0, 1), 3, .125f),
 	POISON(new Color(0.29f, 0.78f, 0, 1), 5, .04f), ICE(new Color(0, 1, 1, 1), 5, .04f), FIRE(new Color(1, 0.29f, 0, 1), 5, .04f),
 	DARK(new Color(0.1f, 0.1f, 0.1f, 1), 7, .02f);
 
@@ -43,7 +43,7 @@ public enum Element implements Weighted
 				break;
 			case FAST:
 				entity.setAttribute(EntityAttribute.MAX_HEALTH, entity.getAttributeFloat(EntityAttribute.MAX_HEALTH) * 1.5f);
-				entity.setAttribute(EntityAttribute.SPEED, entity.getAttributeFloat(EntityAttribute.SPEED) * 1.4f);
+				entity.setAttribute(EntityAttribute.SPEED, entity.getAttributeFloat(EntityAttribute.SPEED) * 1.35f);
 				break;
 			case POWER:
 				entity.setAttribute(EntityAttribute.MAX_HEALTH, entity.getAttributeFloat(EntityAttribute.MAX_HEALTH) * 2.5f);

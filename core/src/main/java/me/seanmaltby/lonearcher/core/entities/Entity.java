@@ -41,6 +41,7 @@ public abstract class Entity
 		sprite.setScale(getAttributeFloat(EntityAttribute.SIZE));
 		sprite.setAngle(direction * MathUtils.radDeg);
 		sprite.setPosition(position.x, position.y);
+		sprite.update();
 
 		body = createBody(b2World, Utils.toBox2dCoords(position), direction);
 
@@ -155,8 +156,8 @@ public abstract class Entity
 		direction.nor();
 		float xDesiredSpeed = direction.x * speed;
 		float yDesiredSpeed = direction.y * speed;
-		float xVelocity = Interpolation.linear.apply(body.getLinearVelocity().x, xDesiredSpeed, .1f) - body.getLinearVelocity().x;
-		float yVelocity = Interpolation.linear.apply(body.getLinearVelocity().y, yDesiredSpeed, .1f) - body.getLinearVelocity().y;
+		float xVelocity = Interpolation.linear.apply(body.getLinearVelocity().x, xDesiredSpeed, .15f) - body.getLinearVelocity().x;
+		float yVelocity = Interpolation.linear.apply(body.getLinearVelocity().y, yDesiredSpeed, .15f) - body.getLinearVelocity().y;
 
 		//Convert to the force required to approach that velocity
 		float xImpulse = body.getMass() * xVelocity;

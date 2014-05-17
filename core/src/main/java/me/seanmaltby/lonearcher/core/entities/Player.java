@@ -29,7 +29,7 @@ public class Player extends RangedEntity
 		setAttribute(EntityAttribute.MAX_HEALTH, 20f);
 		setAttribute(EntityAttribute.DAMAGE, 5f);
 		setAttribute(EntityAttribute.ATTACK_SPEED, 2f);
-		setAttribute(EntityAttribute.SPEED, 2.75f);
+		setAttribute(EntityAttribute.SPEED, 3f);
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class Player extends RangedEntity
 	@Override
 	protected Projectile createProjectile()
 	{
-		Projectile projectile = new Projectile("Arrow", new Vector2(), getDirection(), getWorld(), this);
+		Projectile projectile = new Projectile("Arrow", new Vector2(getPosition()), getDirection(), getWorld(), this);
 		if(ember && MathUtils.random() < 0.35f)
 			projectile.setAttribute(EntityAttribute.ELEMENT, Element.FIRE);
 		return projectile;
@@ -134,24 +134,18 @@ public class Player extends RangedEntity
 				//Movement
 				float defaultX = 0;
 				float defaultY = 4.9f;
-				float maxDeltaX = 2;
-				float maxDeltaY = 1.5f;
-				float maxSpeed = (float) Math.sqrt(2 * Math.pow(Math.max(maxDeltaX, maxDeltaY), 2));
+				float maxDelta = 1.5f;
 
 				//Opposite accelerometer readings are used because the game is run in landscape mode
 				float accelX = Gdx.input.getAccelerometerY() - defaultX;
 				float accelY = Gdx.input.getAccelerometerX() - defaultY;
-				accelX = MathUtils.clamp(accelX, -maxDeltaX, maxDeltaX);
-				accelY = MathUtils.clamp(accelY, -maxDeltaY, maxDeltaY);
-				if(maxDeltaY < maxDeltaX)
-					accelY *= (maxDeltaX / maxDeltaY);
-				else if(maxDeltaX < maxDeltaY)
-					accelX *= (maxDeltaY / maxDeltaX);
+				//Negate accelY to account for landscape right
+				Vector2 accel = new Vector2(accelX, -accelY);
+				accel.clamp(0, maxDelta);
 
-				float speed = (float) Math.sqrt(Math.pow(accelY, 2) + Math.pow(accelX, 2));
-				float speedRatio = speed / maxSpeed;
+				float speedRatio = accel.len2() / (maxDelta * maxDelta);
 
-				move(new Vector2(accelX, -accelY), speedRatio * getAttributeFloat(EntityAttribute.SPEED));
+				move(accel, speedRatio * getAttributeFloat(EntityAttribute.SPEED));
 				break;
 		}
 	}

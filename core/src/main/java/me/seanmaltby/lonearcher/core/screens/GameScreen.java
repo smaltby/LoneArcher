@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.viewport.FillViewport;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 import me.seanmaltby.lonearcher.core.*;
 import me.seanmaltby.lonearcher.core.entities.Entity;
 import me.seanmaltby.lonearcher.core.entities.Player;
@@ -43,8 +43,12 @@ public class GameScreen implements Screen
 
 	public GameScreen()
 	{
-		stage = new Stage(new FillViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
-		camera = new OrthographicCamera(Global.VIRTUAL_WIDTH, Global.VIRTUAL_HEIGHT);
+		stage = new Stage(new StretchViewport(Global.VIRTUAL_WIDTH, Global.VIRTUAL_HEIGHT));
+
+		//Camera size is based off of aspect ratio to avoid stretching. Some devices may display more or less of the world
+		//than others on the vertical axis as a result of this, but not by a significant amount.
+		float aspectRatio = ((float) Gdx.graphics.getWidth()) / Gdx.graphics.getHeight();
+		camera = new OrthographicCamera(Global.VIRTUAL_WIDTH, Global.VIRTUAL_WIDTH / aspectRatio);
 	}
 
 	public void newGame()

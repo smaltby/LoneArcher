@@ -93,7 +93,7 @@ public class WaveHandler
 		wave++;
 		new NextWaveGUI(Global.gameScreen.getStage(), wave);
 
-		toSpawn = MathUtils.ceilPositive((float) (10 * Math.pow(wave, 1 / 3)));
+		toSpawn = MathUtils.ceilPositive((float) (10 * Math.pow(wave, 1 / 2d)));
 		//Logarthmic function, starts out at .01, rises rapidly originally, then slows down. At .02 by wave 10.
 		spawnChance = (float) (.01 * Math.log10(wave) + .01);
 

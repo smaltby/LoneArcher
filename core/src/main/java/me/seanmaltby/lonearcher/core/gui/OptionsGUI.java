@@ -1,8 +1,9 @@
-package me.seanmaltby.lonearcher.core.screens;
+package me.seanmaltby.lonearcher.core.gui;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import me.seanmaltby.lonearcher.core.Global;
 
@@ -37,6 +38,7 @@ public class OptionsGUI
 	private void initializeGUI()
 	{
 		window.setFillParent(true);
+		window.setTitleAlignment(Align.bottom);
 		//window.setBackground(new TiledDrawable(Global.uiSkin.getRegion("CrackedTexture")));
 
 		Table table = new Table(Global.uiSkin);
@@ -58,7 +60,7 @@ public class OptionsGUI
 
 	private void createDefaultTiltChoices(Table table)
 	{
-		Label label = new Label("-----Angle to Hold Device At-----", Global.uiSkin, "hobbyOfNight-30");
+		Label label = new Label("Angle to Hold Device At", Global.uiSkin, "hobbyOfNight-30");
 
 		Label flatLabel = new Label("Flat", Global.uiSkin, "hobbyOfNight-20");
 		Label tiltedLabel = new Label("Tilted", Global.uiSkin, "hobbyOfNight-20");
@@ -122,7 +124,7 @@ public class OptionsGUI
 
 	private void createAimOptions(Table table)
 	{
-		Label label = new Label("-----Method of Aiming-----", Global.uiSkin, "hobbyOfNight-30");
+		Label label = new Label("Method of Aiming", Global.uiSkin, "hobbyOfNight-30");
 
 		Label pressToAimLabel = new Label("Press To Aim", Global.uiSkin, "hobbyOfNight-20");
 		Label analogStickLabel = new Label("Analog Stick", Global.uiSkin, "hobbyOfNight-20");
