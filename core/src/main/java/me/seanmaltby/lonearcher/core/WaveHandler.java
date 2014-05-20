@@ -112,19 +112,31 @@ public class WaveHandler
 		float adjustedSpawnChance = spawnChance * (delta / (1/60f));
 		if(Math.random() < adjustedSpawnChance)
 		{
-			enemies.add(spawnEnemy());
+			Vector2 location = chooseSpawnLocation();
+			LivingEntity enemy = chooseEnemy(location, 0, gameScreen.getWorld());
+
+			//Swarmlings are spawned in swarms
+			if(enemy instanceof Swarmling)
+			{
+				for(int i = 0; i < 4; i++)
+				{
+					prepareEnemy(new Swarmling(location, 0, gameScreen.getWorld()));
+				}
+			}
+
+			//Prepare the enemy and add decrease the number of entities still to spawn.
+			//Note that a swarm of swarmlings still counts as one enemy
+			prepareEnemy(enemy);
 			toSpawn--;
 		}
 	}
 
-	private LivingEntity spawnEnemy()
+	private void prepareEnemy(LivingEntity enemy)
 	{
-		Vector2 location = chooseSpawnLocation();
-		LivingEntity enemy = chooseEnemy(location, 0, gameScreen.getWorld());
 		enemy.setAttribute(EntityAttribute.ELEMENT, chooseElement());
 		enemy.setAttribute(EntityAttribute.MAX_HEALTH, enemy.getAttributeFloat(EntityAttribute.MAX_HEALTH) * healthMod);
 		enemy.setAttribute(EntityAttribute.DAMAGE, enemy.getAttributeFloat(EntityAttribute.DAMAGE) * damageMod);
-		return enemy;
+		enemies.add(enemy);
 	}
 
 	private Vector2 chooseSpawnLocation()

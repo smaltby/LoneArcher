@@ -13,9 +13,10 @@ public class Puncher extends MeleeEntity
 		goals.add(new MoveTowardsGoal(this));
 		goals.add(new SeparationGoal(this));
 		goals.add(new FaceTargetGoal(this));
-		goals.add(new MeleeAttackGoal(this, 70f));
+		goals.add(new MeleeAttackGoal(this, 75));
 
 		setAttribute(EntityAttribute.DAMAGE, 2f);
+		setAttribute(EntityAttribute.ATTACK_SPEED, getAttributeFloat(EntityAttribute.ATTACK_SPEED) * 1.5f);
 	}
 
 	@Override

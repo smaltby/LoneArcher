@@ -37,6 +37,11 @@ public class LoneArcher extends Game
 		Global.inputMultiplexer = new InputMultiplexer();
 		Gdx.input.setInputProcessor(Global.inputMultiplexer);
 
+		//Initialize settings
+		Global.settings = Gdx.app.getPreferences("Settings");
+		if(!Global.settings.getBoolean("Defaults", false))
+			setupDefaultSettings();
+
 		//Initialize spriter and the entity animatiom
 		SCMLReader reader = new SCMLReader(Gdx.files.internal("Entity.scml").read());
 		Global.data = reader.getData();
@@ -68,6 +73,23 @@ public class LoneArcher extends Game
 	public void setScreen(Screen screen)
 	{
 		super.setScreen(screen);
+	}
+
+	private void setupDefaultSettings()
+	{
+		Global.settings.putBoolean(Global.IPHONE_HORIZONTAL, false);
+		Global.settings.putBoolean(Global.IPHONE_TILTED, true);
+		Global.settings.putBoolean(Global.IPHONE_VERTICAL, false);
+
+		Global.settings.putBoolean(Global.PRESS_TO_AIM, true);
+		Global.settings.putBoolean(Global.ANALOG_STICK_AIM, false);
+
+		Global.settings.putBoolean(Global.SOUND, true);
+		Global.settings.putBoolean(Global.MUSIC, true);
+
+		Global.settings.putBoolean("Defaults", true);
+
+		Global.settings.flush();
 	}
 
 	public static LoneArcher getInstance()

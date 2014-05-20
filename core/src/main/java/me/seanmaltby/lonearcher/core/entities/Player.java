@@ -18,7 +18,7 @@ public class Player extends RangedEntity
 	private boolean regen = false;
 	private boolean ember = false;
 
-	private float money = 100f;
+	private float money = 1200f;
 
 	public Player(Vector2 position, float direction, World b2World)
 	{
@@ -74,7 +74,7 @@ public class Player extends RangedEntity
 	protected Projectile createProjectile()
 	{
 		Projectile projectile = new Projectile("Arrow", new Vector2(getPosition()), getDirection(), getWorld(), this);
-		if(ember && MathUtils.random() < 0.35f)
+		if(ember && MathUtils.random() < 0.5f)
 			projectile.setAttribute(EntityAttribute.ELEMENT, Element.FIRE);
 		return projectile;
 	}
@@ -105,13 +105,16 @@ public class Player extends RangedEntity
 			case Applet:
 			case WebGL:
 				//Look direction
-				Vector3 mouseCoords = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
-				camera.unproject(mouseCoords);
+				if(Global.settings.getBoolean(Global.PRESS_TO_AIM))
+				{
+					Vector3 mouseCoords = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
+					camera.unproject(mouseCoords);
 
-				deltaY = mouseCoords.y - getPosition().y;
-				deltaX = mouseCoords.x - getPosition().x;
-				angle = MathUtils.atan2(deltaY, deltaX);
-				setDirection(angle);
+					deltaY = mouseCoords.y - getPosition().y;
+					deltaX = mouseCoords.x - getPosition().x;
+					angle = MathUtils.atan2(deltaY, deltaX);
+					setDirection(angle);
+				}
 
 				//Movement
 				int vertical = 0;
@@ -129,18 +132,41 @@ public class Player extends RangedEntity
 				break;
 			case iOS:
 			case Android:
-				//NOTE: Look direction is handled by the aim controller in the GameHUD for mobile targets
+				//Look direction
+				if(Global.settings.getBoolean(Global.PRESS_TO_AIM) && Gdx.input.isTouched())
+				{
+					Vector3 touch = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
+					camera.unproject(touch);
+
+					deltaY = touch.y - getPosition().y;
+					deltaX = touch.x - getPosition().x;
+					angle = MathUtils.atan2(deltaY, deltaX);
+					setDirection(angle);
+				}
 
 				//Movement
 				float defaultX = 0;
-				float defaultY = 4.9f;
+				float defaultY = (Global.settings.getBoolean(Global.IPHONE_HORIZONTAL)) ? 0f :
+						(Global.settings.getBoolean(Global.IPHONE_TILTED)) ? 4.9f :
+						0f;
 				float maxDelta = 1.5f;
 
 				//Opposite accelerometer readings are used because the game is run in landscape mode
-				float accelX = Gdx.input.getAccelerometerY() - defaultX;
-				float accelY = Gdx.input.getAccelerometerX() - defaultY;
-				//Negate accelY to account for landscape right
-				Vector2 accel = new Vector2(accelX, -accelY);
+				float accelX;
+				float accelY;
+				if(Global.settings.getBoolean(Global.IPHONE_VERTICAL))
+				{
+					accelX = Gdx.input.getAccelerometerY() - defaultX;
+					accelY = Gdx.input.getAccelerometerZ() - defaultY;
+				} else
+				{
+					accelX = Gdx.input.getAccelerometerY() - defaultX;
+					accelY = Gdx.input.getAccelerometerX() - defaultY;
+					//Negate accelY to account for landscape right
+					accelY *= -1;
+				}
+
+				Vector2 accel = new Vector2(accelX, accelY);
 				accel.clamp(0, maxDelta);
 
 				float speedRatio = accel.len2() / (maxDelta * maxDelta);

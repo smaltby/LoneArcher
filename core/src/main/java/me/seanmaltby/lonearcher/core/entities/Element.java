@@ -43,7 +43,7 @@ public enum Element implements Weighted
 				break;
 			case FAST:
 				entity.setAttribute(EntityAttribute.MAX_HEALTH, entity.getAttributeFloat(EntityAttribute.MAX_HEALTH) * 1.5f);
-				entity.setAttribute(EntityAttribute.SPEED, entity.getAttributeFloat(EntityAttribute.SPEED) * 1.35f);
+				entity.setAttribute(EntityAttribute.SPEED, entity.getAttributeFloat(EntityAttribute.SPEED) * 1.3f);
 				break;
 			case POWER:
 				entity.setAttribute(EntityAttribute.MAX_HEALTH, entity.getAttributeFloat(EntityAttribute.MAX_HEALTH) * 2.5f);

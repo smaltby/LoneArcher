@@ -1,6 +1,5 @@
 package me.seanmaltby.lonearcher.core.gui;
 
-import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Action;
@@ -80,11 +79,9 @@ public class GameHUD
 		//Empty space between pause button and aim control
 		table.add().expandX();
 
-		if(Gdx.app.getType().equals(Application.ApplicationType.Android) || Gdx.app.getType().equals(Application.ApplicationType.iOS))
-		{
-			AimControl aimControl = new AimControl();
-			table.add(aimControl).right().pad(aimControl.getWidth() / 2);
-		}
+		AimControl aimControl = new AimControl();
+		table.add(aimControl).right().pad(aimControl.getWidth() / 2);
+		aimControl.setVisible(Global.settings.getBoolean(Global.ANALOG_STICK_AIM));
 
 		stage.addActor(table);
 	}
@@ -140,6 +137,16 @@ public class GameHUD
 					analogStick.addAction(new UpdateAim(new Vector2(Gdx.input.getX(), Gdx.input.getY()), analogStick.getImageWidth() / 2));
 
 					return true;
+				}
+			});
+
+			analogStick.addAction(new Action()
+			{
+				@Override
+				public boolean act(float delta)
+				{
+					setVisible(Global.settings.getBoolean(Global.ANALOG_STICK_AIM));
+					return false;
 				}
 			});
 

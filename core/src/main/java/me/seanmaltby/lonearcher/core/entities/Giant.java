@@ -13,11 +13,12 @@ public class Giant extends MeleeEntity
 		goals.add(new MoveTowardsGoal(this));
 		goals.add(new SeparationGoal(this));
 		goals.add(new FaceTargetGoal(this));
-		goals.add(new MeleeAttackGoal(this, 140));
+		goals.add(new MeleeAttackGoal(this, 120));
 
 		setAttribute(EntityAttribute.MAX_HEALTH, 40f);
 		setAttribute(EntityAttribute.DAMAGE, 4f);
 		setAttribute(EntityAttribute.KNOCKBACK, 10f);
+		setAttribute(EntityAttribute.ATTACK_SPEED, getAttributeFloat(EntityAttribute.ATTACK_SPEED) * 1.25f);
 		setAttribute(EntityAttribute.SPEED, getAttributeFloat(EntityAttribute.SPEED) * .8f);
 		setAttribute(EntityAttribute.SIZE, getAttributeFloat(EntityAttribute.SIZE) * 2f);
 		setAttribute(EntityAttribute.WORTH, getAttributeFloat(EntityAttribute.WORTH) * 4);

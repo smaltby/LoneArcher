@@ -1,6 +1,7 @@
 package me.seanmaltby.lonearcher.core;
 
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -48,4 +49,20 @@ public class Global
 	public static final int VIRTUAL_WIDTH = 1136;
 
 	public static final int VIRTUAL_HEIGHT = 640;
+
+	public static Preferences settings;
+
+	public static final String IPHONE_HORIZONTAL = "DefaultTilt.Horizontal";
+
+	public static final String IPHONE_TILTED = "DefaultTilt.Tilted";
+
+	public static final String IPHONE_VERTICAL = "DefaultTilt.Vertical";
+
+	public static final String PRESS_TO_AIM = "Aim.Press";
+
+	public static final String ANALOG_STICK_AIM = "Aim.AnalogStick";
+
+	public static final String SOUND = "Sounds.Sound";
+
+	public static final String MUSIC = "Sounds.Music";
 }

@@ -13,7 +13,7 @@ public class Swordsman extends MeleeEntity
 		goals.add(new MoveTowardsGoal(this));
 		goals.add(new SeparationGoal(this));
 		goals.add(new FaceTargetGoal(this));
-		goals.add(new MeleeAttackGoal(this, 120f));
+		goals.add(new MeleeAttackGoal(this, 120));
 
 		setAttribute(EntityAttribute.MAX_HEALTH, 15f);
 		setAttribute(EntityAttribute.DAMAGE, 5f);

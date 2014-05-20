@@ -5,7 +5,7 @@ import java.util.Map;
 
 public enum EntityAttribute
 {
-	MAX_HEALTH(10f), DAMAGE(1f), ATTACK_SPEED(1f), SPEED(2.5f), SIZE(0.5f), PIERCING(1), ELEMENT(Element.NORMAL),
+	MAX_HEALTH(10f), DAMAGE(1f), ATTACK_SPEED(1f), SPEED(2f), SIZE(0.5f), PIERCING(1), ELEMENT(Element.NORMAL),
 	PROJECTILES(1), KNOCKBACK(0f), WORTH(15f);
 
 	private Object defaultValue;

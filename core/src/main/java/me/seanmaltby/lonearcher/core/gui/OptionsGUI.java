@@ -1,5 +1,6 @@
 package me.seanmaltby.lonearcher.core.gui;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
@@ -67,9 +68,11 @@ public class OptionsGUI
 		Label verticalLabel = new Label("Vertical", Global.uiSkin, "hobbyOfNight-20");
 
 		final Button flatChoice = new Button(Global.uiSkin, "radio");
+		flatChoice.setChecked(Global.settings.getBoolean(Global.IPHONE_HORIZONTAL));
 		final Button tiltedChoice = new Button(Global.uiSkin, "radio");
-		tiltedChoice.setChecked(true);
+		tiltedChoice.setChecked(Global.settings.getBoolean(Global.IPHONE_TILTED));
 		final Button verticalChoice = new Button(Global.uiSkin, "radio");
+		verticalChoice.setChecked(Global.settings.getBoolean(Global.IPHONE_VERTICAL));
 		new ButtonGroup(flatChoice, tiltedChoice, verticalChoice);
 
 		Image iphoneFlat = new Image(Global.uiSkin, "IPhoneFlat");
@@ -80,6 +83,10 @@ public class OptionsGUI
 			{
 				super.clicked(event, x, y);
 				flatChoice.setChecked(true);
+				Global.settings.putBoolean(Global.IPHONE_HORIZONTAL, true);
+				Global.settings.putBoolean(Global.IPHONE_TILTED, false);
+				Global.settings.putBoolean(Global.IPHONE_VERTICAL, false);
+				Global.settings.flush();
 			}
 		});
 		Image iphoneTilted = new Image(Global.uiSkin, "IPhoneTilted");
@@ -90,6 +97,10 @@ public class OptionsGUI
 			{
 				super.clicked(event, x, y);
 				tiltedChoice.setChecked(true);
+				Global.settings.putBoolean(Global.IPHONE_TILTED, true);
+				Global.settings.putBoolean(Global.IPHONE_HORIZONTAL, false);
+				Global.settings.putBoolean(Global.IPHONE_VERTICAL, false);
+				Global.settings.flush();
 			}
 		});
 		Image iphoneVertical = new Image(Global.uiSkin, "IPhoneVertical");
@@ -100,6 +111,10 @@ public class OptionsGUI
 			{
 				super.clicked(event, x, y);
 				verticalChoice.setChecked(true);
+				Global.settings.putBoolean(Global.IPHONE_VERTICAL, true);
+				Global.settings.putBoolean(Global.IPHONE_TILTED, false);
+				Global.settings.putBoolean(Global.IPHONE_HORIZONTAL, false);
+				Global.settings.flush();
 			}
 		});
 
@@ -130,8 +145,9 @@ public class OptionsGUI
 		Label analogStickLabel = new Label("Analog Stick", Global.uiSkin, "hobbyOfNight-20");
 
 		final Button pressToAimChoice = new Button(Global.uiSkin, "radio");
-		pressToAimChoice.setChecked(true);
+		pressToAimChoice.setChecked(Global.settings.getBoolean(Global.PRESS_TO_AIM));
 		final Button analogStickChoice = new Button(Global.uiSkin, "radio");
+		analogStickChoice.setChecked(Global.settings.getBoolean(Global.ANALOG_STICK_AIM));
 		new ButtonGroup(pressToAimChoice, analogStickChoice);
 
 		Image pressToAim = new Image(Global.uiSkin, "PressToAim");
@@ -142,6 +158,9 @@ public class OptionsGUI
 			{
 				super.clicked(event, x, y);
 				pressToAimChoice.setChecked(true);
+				Global.settings.putBoolean(Global.PRESS_TO_AIM, true);
+				Global.settings.putBoolean(Global.ANALOG_STICK_AIM, false);
+				Global.settings.flush();
 			}
 		});
 		Image analogStick = new Image(Global.uiSkin, "AnalogStickToAim");
@@ -152,6 +171,9 @@ public class OptionsGUI
 			{
 				super.clicked(event, x, y);
 				analogStickChoice.setChecked(true);
+				Global.settings.putBoolean(Global.ANALOG_STICK_AIM, true);
+				Global.settings.putBoolean(Global.PRESS_TO_AIM, false);
+				Global.settings.flush();
 			}
 		});
 
@@ -181,12 +203,34 @@ public class OptionsGUI
 		Table musicTable = new Table(Global.uiSkin);
 		musicTable.defaults().space(20f);
 
-		Button sound = new Button(Global.uiSkin, "soundButton");
-		sound.setChecked(true);
-		Button music = new Button(Global.uiSkin, "musicButton");
-		music.setChecked(true);
+		final Button sound = new Button(Global.uiSkin, "soundButton");
+		sound.setChecked(Global.settings.getBoolean(Global.SOUND));
+		final Button music = new Button(Global.uiSkin, "musicButton");
+		music.setChecked(Global.settings.getBoolean(Global.MUSIC));
 		Label soundLabel = new Label("Sound", Global.uiSkin, "hobbyOfNight-20");
 		Label musicLabel = new Label("Music", Global.uiSkin, "hobbyOfNight-20");
+
+		sound.addListener(new ClickListener()
+		{
+			@Override
+			public void clicked(InputEvent event, float x, float y)
+			{
+				super.clicked(event, x, y);
+				Global.settings.putBoolean(Global.SOUND, sound.isChecked());
+				Global.settings.flush();
+			}
+		});
+
+		music.addListener(new ClickListener()
+		{
+			@Override
+			public void clicked(InputEvent event, float x, float y)
+			{
+				super.clicked(event, x, y);
+				Global.settings.putBoolean(Global.MUSIC, music.isChecked());
+				Global.settings.flush();
+			}
+		});
 
 		soundTable.add(sound);
 		soundTable.add(soundLabel);
@@ -215,6 +259,6 @@ public class OptionsGUI
 
 		table.row();
 		table.add(backButton).padLeft(30f).padTop(30f);
-		table.add(backLabel).space(5f);
+		table.add(backLabel).space(5f).center();
 	}
 }

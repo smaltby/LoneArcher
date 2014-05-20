@@ -13,12 +13,12 @@ public class Swarmling extends MeleeEntity
 		goals.add(new MoveTowardsGoal(this));
 		goals.add(new SeparationGoal(this));
 		goals.add(new FaceTargetGoal(this));
-		goals.add(new MeleeAttackGoal(this, 35));
+		goals.add(new MeleeAttackGoal(this, 50));
 
-		setAttribute(EntityAttribute.MAX_HEALTH, 5f);
-		setAttribute(EntityAttribute.DAMAGE, 1f);
-		setAttribute(EntityAttribute.SPEED, getAttributeFloat(EntityAttribute.SPEED) * 1.1f);
-		setAttribute(EntityAttribute.SIZE, getAttributeFloat(EntityAttribute.SIZE) * .5f);
+		setAttribute(EntityAttribute.MAX_HEALTH, 12.5f);
+		setAttribute(EntityAttribute.DAMAGE, 2f);
+		setAttribute(EntityAttribute.ATTACK_SPEED, getAttributeFloat(EntityAttribute.ATTACK_SPEED) * 2f);
+		setAttribute(EntityAttribute.SIZE, getAttributeFloat(EntityAttribute.SIZE) * .6f);
 		setAttribute(EntityAttribute.WORTH, getAttributeFloat(EntityAttribute.WORTH) * .5f);
 	}
 

@@ -128,9 +128,6 @@ public class GameScreen implements Screen
 			entitiesToRemove.clear();
 
 			updateCamera();
-
-			//Update and draw particle effects
-			ParticleEffectManager.render(delta);
 		}
 
 		//Draw background
@@ -143,6 +140,12 @@ public class GameScreen implements Screen
 			entity.draw(delta);
 		}
 		Global.batch.end();
+
+		if(!paused)
+		{
+			//Update and draw particle effects
+			ParticleEffectManager.render(delta);
+		}
 
 //		Box2DDebugRenderer debugRenderer = new Box2DDebugRenderer();
 //		debugRenderer.render(b2World, camera.combined.scl(Global.BOX_TO_WORLD));
