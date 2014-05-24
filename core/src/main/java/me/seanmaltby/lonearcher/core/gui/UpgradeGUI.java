@@ -1,5 +1,6 @@
 package me.seanmaltby.lonearcher.core.gui;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -261,28 +262,40 @@ public class UpgradeGUI
 					if(plus.isDisabled())
 						return;
 
-					//Deduct cost
+					//Deduct cost if possible
 					Player player = Global.gameScreen.getPlayer();
+					if(player.getMoney() < cost)
+						return;
+
 					player.subMoney(cost);
 
 					//Upgrade level and handle actor appearances
 					radios[upgradeLevel].setChecked(true);
 					upgradeLevel++;
 					if(upgradeLevel == numUpgrades)
+					{
 						plus.setDisabled(true);
+						costLabel.setText("$N/A");
+					} else
+					{
+						//Handle attribute increases
+						if (integer)
+							player.setAttribute(attribute, player.getAttributeInteger(attribute) + MathUtils.round(attributeIncrease));
+						else
+							player.setAttribute(attribute, player.getAttributeFloat(attribute) + attributeIncrease);
+						attributeIncrease *= increaseMultiplier;
+						cost *= costMultiplier;
 
-					//Handle attribute increases
-					if(integer)
-						player.setAttribute(attribute, player.getAttributeInteger(attribute) + MathUtils.round(attributeIncrease));
-					else
-						player.setAttribute(attribute, player.getAttributeFloat(attribute) + attributeIncrease);
-					attributeIncrease *= increaseMultiplier;
-					cost *= costMultiplier;
+						nameLabel.setText("+" + attributeIncrease + " " + name);
+						costLabel.setText("$" + cost);
+						costLabel.setWidth(150f);
+					}
 
-					nameLabel.setText("+"+attributeIncrease+" "+name);
-					costLabel.setText("$"+cost);
-					costLabel.setWidth(150f);
+					//Play sound
+					if(Global.settings.getBoolean(Global.SOUND))
+						Global.buttonClick.play();
 
+					//Update stats and whether or not the other upgrades are now disabled
 					updateStats();
 					updateDisabledStatuses();
 				}
@@ -297,9 +310,9 @@ public class UpgradeGUI
 				return;
 			Player player = Global.gameScreen.getPlayer();
 			if(player.getMoney() < cost)
-				plus.setDisabled(true);
+				costLabel.setColor(Color.RED);
 			else
-				plus.setDisabled(false);
+				costLabel.setColor(Color.WHITE);
 		}
 	}
 
@@ -325,13 +338,22 @@ public class UpgradeGUI
 					if(button.isDisabled())
 						return;
 
+					Player player = Global.gameScreen.getPlayer();
+					if(player.getMoney() < cost)
+						return;
+
 					onBuy.run();
 
-					Player player = Global.gameScreen.getPlayer();
 					player.subMoney(cost);
 					used = true;
 					button.setDisabled(true);
+					costLabel.setText("$N/A");
 
+					//Play sound
+					if(Global.settings.getBoolean(Global.SOUND))
+						Global.buttonClick.play();
+
+					//Update stats and whether or not the other upgrades are now disabled
 					updateStats();
 					updateDisabledStatuses();
 				}
@@ -356,9 +378,9 @@ public class UpgradeGUI
 				return;
 			Player player = Global.gameScreen.getPlayer();
 			if(player.getMoney() < cost)
-				button.setDisabled(true);
+				costLabel.setColor(Color.RED);
 			else
-				button.setDisabled(false);
+				costLabel.setColor(Color.WHITE);
 		}
 	}
 

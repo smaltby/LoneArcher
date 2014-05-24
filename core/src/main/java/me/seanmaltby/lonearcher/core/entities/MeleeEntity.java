@@ -3,6 +3,7 @@ package me.seanmaltby.lonearcher.core.entities;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.brashmonkey.spriter.Timeline;
+import me.seanmaltby.lonearcher.core.Global;
 import me.seanmaltby.lonearcher.core.utils.Utils;
 
 import java.util.HashSet;
@@ -43,6 +44,8 @@ public abstract class MeleeEntity extends LivingEntity
 	public void attack()
 	{
 		getSprite().setAnimation("Attack");
+		if(Global.settings.getBoolean(Global.SOUND))
+			Global.weaponSwing.play();
 	}
 
 	@Override
@@ -138,6 +141,8 @@ public abstract class MeleeEntity extends LivingEntity
 				MeleeEntity.this.damage(other);
 				alreadyDamaged.add(other);
 			}
+			if(Global.settings.getBoolean(Global.SOUND))
+				Global.meleeHit.play();
 		}
 
 		private void endAttacking()

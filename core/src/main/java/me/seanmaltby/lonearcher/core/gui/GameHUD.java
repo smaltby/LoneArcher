@@ -70,7 +70,7 @@ public class GameHUD
 			public void clicked(InputEvent event, float x, float y)
 			{
 				super.clicked(event, x, y);
-				Global.gameScreen.pause();
+				Global.gameScreen.pauseInternal();
 				new OptionsGUI(stage).open();
 			}
 		});

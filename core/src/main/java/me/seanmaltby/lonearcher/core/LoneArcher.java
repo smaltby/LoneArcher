@@ -42,6 +42,15 @@ public class LoneArcher extends Game
 		if(!Global.settings.getBoolean("Defaults", false))
 			setupDefaultSettings();
 
+		//Initialize sounds and music
+		Global.gameMusic1 = Gdx.audio.newMusic(Gdx.files.internal("sounds/GameMusic1.wav"));
+		Global.gameMusic1.setLooping(true);
+		Global.arrowHit = Gdx.audio.newSound(Gdx.files.internal("sounds/ArrowHit.wav"));
+		Global.buttonClick = Gdx.audio.newSound(Gdx.files.internal("sounds/ButtonClick.wav"));
+		Global.explosion = Gdx.audio.newSound(Gdx.files.internal("sounds/Explosion.wav"));
+		Global.meleeHit = Gdx.audio.newSound(Gdx.files.internal("sounds/MeleeHit.wav"));
+		Global.weaponSwing = Gdx.audio.newSound(Gdx.files.internal("sounds/WeaponSwing.wav"));
+
 		//Initialize spriter and the entity animatiom
 		SCMLReader reader = new SCMLReader(Gdx.files.internal("Entity.scml").read());
 		Global.data = reader.getData();

@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
-import com.brashmonkey.spriter.Animation;
 import me.seanmaltby.lonearcher.core.Global;
 import me.seanmaltby.lonearcher.core.ParticleEffectManager;
 import me.seanmaltby.lonearcher.core.screens.GameScreen;
@@ -139,7 +138,13 @@ public class Projectile extends Entity
 				float damage = (1 - (distance / radius)) * getAttributeFloat(EntityAttribute.DAMAGE);
 				nearbyEntity.decrementHealth(damage);
 			}
+
+			if(Global.settings.getBoolean(Global.SOUND))
+				Global.explosion.play();
 		}
+		if(Global.settings.getBoolean(Global.SOUND))
+			Global.arrowHit.play();
+
 		piercesLeft--;
 		if(piercesLeft <= 0)
 			kill();

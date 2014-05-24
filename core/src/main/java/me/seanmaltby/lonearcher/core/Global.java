@@ -2,6 +2,8 @@ package me.seanmaltby.lonearcher.core;
 
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Preferences;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -49,6 +51,18 @@ public class Global
 	public static final int VIRTUAL_WIDTH = 1136;
 
 	public static final int VIRTUAL_HEIGHT = 640;
+
+	public static Music gameMusic1;
+
+	public static Sound arrowHit;
+
+	public static Sound buttonClick;
+
+	public static Sound explosion;
+
+	public static Sound meleeHit;
+
+	public static Sound weaponSwing;
 
 	public static Preferences settings;
 

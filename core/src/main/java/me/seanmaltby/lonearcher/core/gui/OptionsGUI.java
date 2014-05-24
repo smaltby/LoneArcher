@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import me.seanmaltby.lonearcher.core.Global;
+import me.seanmaltby.lonearcher.core.screens.GameScreen;
 
 public class OptionsGUI
 {
@@ -32,7 +33,7 @@ public class OptionsGUI
 
 	public void close()
 	{
-		Global.gameScreen.resume();
+		Global.gameScreen.resumeInternal();
 		window.remove();
 	}
 
@@ -227,6 +228,11 @@ public class OptionsGUI
 			public void clicked(InputEvent event, float x, float y)
 			{
 				super.clicked(event, x, y);
+				GameScreen gameScreen = Global.gameScreen;
+				if(music.isChecked())
+					Global.gameMusic1.play();
+				else
+					Global.gameMusic1.pause();
 				Global.settings.putBoolean(Global.MUSIC, music.isChecked());
 				Global.settings.flush();
 			}

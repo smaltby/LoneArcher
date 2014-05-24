@@ -3,6 +3,7 @@ package me.seanmaltby.lonearcher.core.entities;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
+import me.seanmaltby.lonearcher.core.Global;
 
 public abstract class RangedEntity extends LivingEntity
 {

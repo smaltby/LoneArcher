@@ -84,12 +84,16 @@ public class WaveHandler
 	private void endWave()
 	{
 		running = false;
+		gameScreen.pauseInternal();
+
 		upgradeGUI.open();
 	}
 
 	public void startWave()
 	{
 		running = true;
+		gameScreen.resumeInternal();
+
 		wave++;
 		new NextWaveGUI(Global.gameScreen.getStage(), wave);
 
@@ -120,7 +124,9 @@ public class WaveHandler
 			{
 				for(int i = 0; i < 4; i++)
 				{
-					prepareEnemy(new Swarmling(location, 0, gameScreen.getWorld()));
+					float deltaX = MathUtils.random(-10, 10);
+					float deltaY = MathUtils.random(-10, 10);
+					prepareEnemy(new Swarmling(new Vector2(location).add(deltaX, deltaY), 0, gameScreen.getWorld()));
 				}
 			}
 

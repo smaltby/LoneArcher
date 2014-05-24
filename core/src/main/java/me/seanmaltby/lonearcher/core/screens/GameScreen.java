@@ -2,7 +2,6 @@ package me.seanmaltby.lonearcher.core.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.MathUtils;
@@ -37,9 +36,9 @@ public class GameScreen implements Screen
 	private Set<Entity> entitiesToRemove;
 
 	private OrthographicCamera camera;
-	private Music music;
 
-	private boolean paused = false;
+	private boolean pausedInternal = false;
+	private boolean pausedExternal = false;
 
 	public GameScreen()
 	{
@@ -79,9 +78,8 @@ public class GameScreen implements Screen
 		updateCamera();
 
 		//Start music
-		music = Gdx.audio.newMusic(Gdx.files.internal("sounds/GameMusic1.wav"));
-		music.setLooping(true);
-		//music.play();
+		if(Global.settings.getBoolean(Global.MUSIC))
+			Global.gameMusic1.play();
 
 		//Start the game
 		waveHandler.start();
@@ -106,7 +104,7 @@ public class GameScreen implements Screen
 	@Override
 	public void render(float delta)
 	{
-		if(!paused)
+		if(!(pausedInternal || pausedExternal))
 		{
 			waveHandler.update(delta);
 
@@ -141,7 +139,7 @@ public class GameScreen implements Screen
 		}
 		Global.batch.end();
 
-		if(!paused)
+		if(!(pausedInternal || pausedExternal))
 		{
 			//Update and draw particle effects
 			ParticleEffectManager.render(delta);
@@ -245,19 +243,38 @@ public class GameScreen implements Screen
 	{
 		stage.clear();
 		Global.inputMultiplexer.removeProcessor(stage);
-		music.stop();
+		Global.gameMusic1.stop();
+	}
+
+	/**
+	 * Pause method for internal use. Needs to be seperate from the default pause method, as that can be resumed
+	 * when the window is opened from a close state, or an app is reopened. This is not ideal if the game still has
+     * has a window open that requires the game to be paused.
+	 */
+	public void pauseInternal()
+	{
+		pausedInternal = true;
+	}
+
+	/**
+	 * Resume method for internal use. Needs to be seperate from the default resume method for the reasons described
+	 * in the documentation of the pauseInternal method.
+	 */
+	public void resumeInternal()
+	{
+		pausedInternal = false;
 	}
 
 	@Override
 	public void pause()
 	{
-		paused = true;
+		pausedExternal = true;
 	}
 
 	@Override
 	public void resume()
 	{
-		paused = false;
+		pausedExternal = false;
 	}
 
 	@Override

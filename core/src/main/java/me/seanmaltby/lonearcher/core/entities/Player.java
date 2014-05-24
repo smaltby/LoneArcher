@@ -18,7 +18,7 @@ public class Player extends RangedEntity
 	private boolean regen = false;
 	private boolean ember = false;
 
-	private float money = 1200f;
+	private float money = 21200f;
 
 	public Player(Vector2 position, float direction, World b2World)
 	{
@@ -74,7 +74,7 @@ public class Player extends RangedEntity
 	protected Projectile createProjectile()
 	{
 		Projectile projectile = new Projectile("Arrow", new Vector2(getPosition()), getDirection(), getWorld(), this);
-		if(ember && MathUtils.random() < 0.5f)
+		if(ember)
 			projectile.setAttribute(EntityAttribute.ELEMENT, Element.FIRE);
 		return projectile;
 	}
