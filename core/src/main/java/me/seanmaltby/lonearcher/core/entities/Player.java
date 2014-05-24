@@ -18,7 +18,7 @@ public class Player extends RangedEntity
 	private boolean regen = false;
 	private boolean ember = false;
 
-	private float money = 21200f;
+	private float money = 0f;
 
 	public Player(Vector2 position, float direction, World b2World)
 	{

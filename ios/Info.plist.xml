@@ -53,7 +53,13 @@
                 <key>CFBundleIconFiles</key>
                 <array>
                     <string>Icon</string>
-                    <string>Icon-72</string>
+                    <string>Icon@2x</string>
+                    <string>Icon-29</string>
+                    <string>Icon-29@2x</string>
+                    <string>Icon-40</string>
+                    <string>Icon-40@2x</string>
+                    <string>Icon</string>
+                    <string>Icon-76@2x</string>
                 </array>
             </dict>
         </dict>
