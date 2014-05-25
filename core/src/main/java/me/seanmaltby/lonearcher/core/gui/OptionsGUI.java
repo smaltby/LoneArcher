@@ -1,13 +1,11 @@
 package me.seanmaltby.lonearcher.core.gui;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import me.seanmaltby.lonearcher.core.Global;
-import me.seanmaltby.lonearcher.core.screens.GameScreen;
 
 public class OptionsGUI
 {
@@ -33,19 +31,23 @@ public class OptionsGUI
 
 	public void close()
 	{
-		Global.gameScreen.resumeInternal();
+		if(Global.gameScreen.getWaveHandler().isRunning())
+			Global.gameScreen.resumeInternal();
 		window.remove();
 	}
 
 	private void initializeGUI()
 	{
-		window.setFillParent(true);
-		window.setTitleAlignment(Align.bottom);
-		//window.setBackground(new TiledDrawable(Global.uiSkin.getRegion("CrackedTexture")));
+		window.setTitleAlignment(Align.center);
+
+		window.setWidth(stage.getWidth() * .95f);
+		window.setHeight(stage.getHeight() * .95f);
+		window.setX(stage.getWidth() / 2f - window.getWidth() / 2f);
+		window.setY(stage.getHeight() / 2f - window.getHeight() / 2f);
 
 		Table table = new Table(Global.uiSkin);
 		table.setFillParent(true);
-		table.defaults().center().space(20f);
+		table.defaults().center().space(15f);
 		Table backButtonTable = new Table(Global.uiSkin);
 		backButtonTable.setFillParent(true);
 		backButtonTable.top().left();
@@ -228,7 +230,6 @@ public class OptionsGUI
 			public void clicked(InputEvent event, float x, float y)
 			{
 				super.clicked(event, x, y);
-				GameScreen gameScreen = Global.gameScreen;
 				if(music.isChecked())
 					Global.gameMusic1.play();
 				else

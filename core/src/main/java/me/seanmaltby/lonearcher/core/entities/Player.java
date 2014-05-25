@@ -74,6 +74,7 @@ public class Player extends RangedEntity
 	protected Projectile createProjectile()
 	{
 		Projectile projectile = new Projectile("Arrow", new Vector2(getPosition()), getDirection(), getWorld(), this);
+		nockProjectile(projectile, getDirection());
 		if(ember)
 			projectile.setAttribute(EntityAttribute.ELEMENT, Element.FIRE);
 		return projectile;

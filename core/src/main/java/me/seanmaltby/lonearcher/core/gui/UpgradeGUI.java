@@ -44,7 +44,7 @@ public class UpgradeGUI
 	{
 		initialized = true;
 
-		upgradeWindow.setTitleAlignment(Align.bottom);
+		upgradeWindow.setTitleAlignment(Align.center);
 		upgradeWindow.setWidth(stage.getWidth() * .9f);
 		upgradeWindow.setHeight(stage.getHeight() * .8f);
 		upgradeWindow.setX(stage.getWidth() / 2f - upgradeWindow.getWidth() / 2f);

@@ -1,5 +1,6 @@
 package me.seanmaltby.lonearcher.core.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -8,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TiledDrawable;
+import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import me.seanmaltby.lonearcher.core.Global;
 import me.seanmaltby.lonearcher.core.LoneArcher;
@@ -18,7 +20,10 @@ public class MenuScreen implements Screen
 
 	public MenuScreen()
 	{
-		stage = new Stage(new StretchViewport(Global.VIRTUAL_WIDTH, Global.VIRTUAL_HEIGHT));
+		//Sizes are based off of aspect ratio to avoid stretching. Some devices may display more or less of the world
+		//than others on the vertical axis as a result of this, but not by a significant amount.
+		float aspectRatio = ((float) Gdx.graphics.getWidth()) / Gdx.graphics.getHeight();
+		stage = new Stage(new FillViewport(Global.VIRTUAL_WIDTH, Global.VIRTUAL_WIDTH / aspectRatio));
 	}
 
 	public void initializeGUI()

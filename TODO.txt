@@ -1,6 +1,4 @@
 Improve button clicks on small devices
-iOS GUI seems stretched
 Ranged enemies if time permits
-General improvements to GUI (Start screen doesn't fit in with the rest, next wave button doesn't fit in with the rest,
-                             window text is wrongly positioned, upgrade screen transparent in corners)
+General improvements to GUI (Start screen doesn't fit in with the rest, next wave button doesn't fit in with the rest)
 Include credits in game

@@ -98,10 +98,12 @@ public class WaveHandler
 		new NextWaveGUI(Global.gameScreen.getStage(), wave);
 
 		toSpawn = MathUtils.ceilPositive((float) (10 * Math.pow(wave, 1 / 2d)));
-		//Logarthmic function, starts out at .01, rises rapidly originally, then slows down. At .02 by wave 10.
-		spawnChance = (float) (.01 * Math.log10(wave) + .01);
+		//Logarthmic function, starts out at .01, rises rapidly originally, then slows down. At ~.025 by wave 10.
+		spawnChance = (float) (.01 * Math.log(wave/2d + .5) + .01);
 
 		healthMod = 1 + wave * .1f;
+		healthMod *= healthMod;
+
 		damageMod = 1 + wave * .05f;
 
 		Player player = gameScreen.getPlayer();
@@ -119,10 +121,10 @@ public class WaveHandler
 			Vector2 location = chooseSpawnLocation();
 			LivingEntity enemy = chooseEnemy(location, 0, gameScreen.getWorld());
 
-			//Swarmlings are spawned in swarms
+			//Swarmlings are spawned in swarms of 4
 			if(enemy instanceof Swarmling)
 			{
-				for(int i = 0; i < 4; i++)
+				for(int i = 0; i < 3; i++)
 				{
 					float deltaX = MathUtils.random(-10, 10);
 					float deltaY = MathUtils.random(-10, 10);
@@ -174,5 +176,10 @@ public class WaveHandler
 	private Element chooseElement()
 	{
 		return Utils.chooseWeighted(Element.values(), wave);
+	}
+
+	public boolean isRunning()
+	{
+		return running;
 	}
 }

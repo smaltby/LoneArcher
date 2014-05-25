@@ -57,7 +57,7 @@ public abstract class RangedEntity extends LivingEntity
 
 	protected abstract int getProjectileDistanceFromSelf();
 
-	private void nockProjectile(Projectile projectile, float angle)
+	protected void nockProjectile(Projectile projectile, float angle)
 	{
 		if(explosiveArrows)
 			projectile.setExplosive(true);
